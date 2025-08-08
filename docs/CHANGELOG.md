@@ -302,7 +302,7 @@ src/
 
 Se você encontrar problemas ou bugs:
 
-1. **Verifique** se já foi reportado nas [Issues](https://github.com/seu-usuario/brazilian-pasture-synthesis/issues)
+1. **Verifique** se já foi reportado nas [Issues](https://github.com/Kiwiabacaxi/img-sinth/issues)
 2. **Crie** uma nova issue com template apropriado
 3. **Inclua** informações do ambiente e logs
 4. **Descreva** passos para reproduzir o problema

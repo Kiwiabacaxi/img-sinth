@@ -19,7 +19,7 @@ Ao final deste guia, você terá:
 ## 🚀 **Passo 1: Setup Inicial (5 minutos)**
 
 ### **1.1 Abrir o Notebook**
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/seu-usuario/brazilian-pasture-synthesis/blob/main/notebooks/Quick_Start.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Kiwiabacaxi/img-sinth/blob/main/notebooks/Quick_Start.ipynb)
 
 ### **1.2 Verificar GPU**
 ```python
@@ -37,8 +37,8 @@ else:
 ### **1.3 Instalar Dependências**
 ```python
 # Segunda célula - aguarde ~3-5 minutos
-!git clone https://github.com/seu-usuario/brazilian-pasture-synthesis.git
-%cd brazilian-pasture-synthesis
+!git clone https://github.com/Kiwiabacaxi/img-sinth.git
+%cd img-sinth
 !python setup_colab.py
 
 print("🎉 Setup concluído!")
@@ -329,6 +329,6 @@ Conseguiu completar o tutorial? Compartilhe seus resultados:
 
 ---
 
-*Teve dificuldades? [Abra uma issue](https://github.com/seu-usuario/brazilian-pasture-synthesis/issues) ou [entre no Discord](https://discord.gg/pastagens-ia)*
+*Teve dificuldades? [Abra uma issue](https://github.com/Kiwiabacaxi/img-sinth/issues) ou [entre no Discord](https://discord.gg/pastagens-ia)*
 
 </div>

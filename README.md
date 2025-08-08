@@ -2,7 +2,7 @@
 
 Sistema completo de geração de imagens sintéticas de pastagens brasileiras usando **Stable Diffusion**, otimizado para treinamento de modelos **YOLOv8/v9** em detecção de plantas invasoras e análise de qualidade de pastagens.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/seu-usuario/brazilian-pasture-synthesis)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Kiwiabacaxi/img-sinth)
 
 ## 🎯 Objetivos
 
@@ -23,8 +23,8 @@ Baseado nos estudos:
 ### 1. Setup Automático
 ```bash
 # Clone do repositório
-!git clone https://github.com/seu-usuario/brazilian-pasture-synthesis.git
-%cd brazilian-pasture-synthesis
+!git clone https://github.com/Kiwiabacaxi/img-sinth.git
+%cd img-sinth
 
 # Configuração automática
 !python setup_colab.py
@@ -65,7 +65,7 @@ model = pipeline.train_yolo(
 ## 📁 Estrutura do Projeto
 
 ```
-brazilian-pasture-synthesis/
+img-sinth/
 ├── notebooks/              # Notebooks executáveis no Colab
 │   ├── 00_Setup_Environment.ipynb
 │   ├── 01_Explore_Prompts.ipynb
@@ -160,8 +160,8 @@ MIT License - veja [LICENSE](LICENSE) para detalhes.
 
 ## 📞 Suporte
 
-- **Issues**: [GitHub Issues](https://github.com/seu-usuario/brazilian-pasture-synthesis/issues)
-- **Discussões**: [GitHub Discussions](https://github.com/seu-usuario/brazilian-pasture-synthesis/discussions)
+- **Issues**: [GitHub Issues](https://github.com/Kiwiabacaxi/img-sinth/issues)
+- **Discussões**: [GitHub Discussions](https://github.com/Kiwiabacaxi/img-sinth/discussions)
 - **Email**: [seu-email@exemplo.com](mailto:seu-email@exemplo.com)
 
 ## 🙏 Agradecimentos

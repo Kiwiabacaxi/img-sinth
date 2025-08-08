@@ -12,7 +12,7 @@ Este guia abrange todas as formas de instalar e configurar o Brazilian Pasture S
    ```bash
    # Clique no badge para abrir diretamente no Colab:
    ```
-   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/seu-usuario/brazilian-pasture-synthesis/blob/main/notebooks/00_Setup_Environment.ipynb)
+   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Kiwiabacaxi/img-sinth/blob/main/notebooks/00_Setup_Environment.ipynb)
 
 2. **Executar células de setup**:
    - Execute a primeira célula para clonar o repositório
@@ -30,8 +30,8 @@ Este guia abrange todas as formas de instalar e configurar o Brazilian Pasture S
 
 ```python
 # 1. Clonar repositório
-!git clone https://github.com/seu-usuario/brazilian-pasture-synthesis.git
-%cd brazilian-pasture-synthesis
+!git clone https://github.com/Kiwiabacaxi/img-sinth.git
+%cd img-sinth
 
 # 2. Setup automático
 !python setup_colab.py
@@ -60,8 +60,8 @@ print("✅ Instalação concluída com sucesso!")
 
 ### **Passo 1: Clonar Repositório**
 ```bash
-git clone https://github.com/seu-usuario/brazilian-pasture-synthesis.git
-cd brazilian-pasture-synthesis
+git clone https://github.com/Kiwiabacaxi/img-sinth.git
+cd img-sinth
 ```
 
 ### **Passo 2: Criar Ambiente Virtual**
@@ -126,15 +126,15 @@ verify_installation()
 ### **Opção 1: Imagem Pré-construída**
 ```bash
 # Baixar e executar
-docker pull ghcr.io/seu-usuario/brazilian-pasture-synthesis:latest
-docker run --gpus all -p 8888:8888 ghcr.io/seu-usuario/brazilian-pasture-synthesis:latest
+docker pull ghcr.io/kiwiabacaxi/img-sinth:latest
+docker run --gpus all -p 8888:8888 ghcr.io/kiwiabacaxi/img-sinth:latest
 ```
 
 ### **Opção 2: Build Local**
 ```bash
 # Clonar repositório
-git clone https://github.com/seu-usuario/brazilian-pasture-synthesis.git
-cd brazilian-pasture-synthesis
+git clone https://github.com/Kiwiabacaxi/img-sinth.git
+cd img-sinth
 
 # Build da imagem
 docker build -t pasture-synthesis .
@@ -188,8 +188,8 @@ docker-compose up -d
    conda activate pytorch_p39
    
    # Clonar e instalar
-   git clone https://github.com/seu-usuario/brazilian-pasture-synthesis.git
-   cd brazilian-pasture-synthesis
+   git clone https://github.com/Kiwiabacaxi/img-sinth.git
+   cd img-sinth
    pip install -r requirements.txt
    ```
 
@@ -212,8 +212,8 @@ docker-compose up -d
    gcloud compute ssh pasture-synthesis-vm
    
    # Setup do projeto
-   git clone https://github.com/seu-usuario/brazilian-pasture-synthesis.git
-   cd brazilian-pasture-synthesis
+   git clone https://github.com/Kiwiabacaxi/img-sinth.git
+   cd img-sinth
    pip install -r requirements.txt
    ```
 
@@ -225,8 +225,8 @@ docker-compose up -d
 
 2. **Setup via terminal**:
    ```bash
-   git clone https://github.com/seu-usuario/brazilian-pasture-synthesis.git
-   cd brazilian-pasture-synthesis
+   git clone https://github.com/Kiwiabacaxi/img-sinth.git
+   cd img-sinth
    pip install -r requirements.txt
    ```
 
@@ -441,7 +441,7 @@ print(f"Versão atual: {__version__}")
 Se você ainda tiver problemas após seguir este guia:
 
 1. **Documentação**: Consulte [Troubleshooting](troubleshooting.md)
-2. **Issues**: Abra uma issue no [GitHub](https://github.com/seu-usuario/brazilian-pasture-synthesis/issues)
+2. **Issues**: Abra uma issue no [GitHub](https://github.com/Kiwiabacaxi/img-sinth/issues)
 3. **Discord**: Entre no [servidor da comunidade](https://discord.gg/pastagens-ia)
 4. **Email**: pastagens.ia@projeto.br
 

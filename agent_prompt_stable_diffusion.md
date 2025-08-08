@@ -129,7 +129,7 @@ Pillow==10.1.0             # Image handling
 ## 📁 ESTRUTURA DO REPOSITÓRIO
 
 ```
-brazilian-pasture-synthesis/
+img-sinth/
 ├── README.md                          # Documentação principal
 ├── AGENT_PROMPT_STEERING.md          # Este arquivo
 ├── requirements.txt                   # Dependências Python
@@ -482,8 +482,8 @@ EVALUATION_METRICS = [
 ### **Setup Inicial (Colab):**
 ```bash
 # Clone do repositório
-!git clone https://github.com/seu-usuario/brazilian-pasture-synthesis.git
-%cd brazilian-pasture-synthesis
+!git clone https://github.com/Kiwiabacaxi/img-sinth.git
+%cd img-sinth
 
 # Configuração automática
 !python setup_colab.py

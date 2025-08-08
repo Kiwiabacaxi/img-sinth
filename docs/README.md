@@ -2,7 +2,7 @@
 
 **Sistema completo de geração de imagens sintéticas de pastagens brasileiras usando Stable Diffusion, otimizado para treinamento de modelos YOLOv8/v9 em detecção de plantas invasoras e análise de qualidade de pastagens.**
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/seu-usuario/brazilian-pasture-synthesis)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Kiwiabacaxi/img-sinth)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
@@ -43,8 +43,8 @@ O sistema é baseado em estudos científicos rigorosos que demonstram a eficáci
 ### **1. Abrir no Google Colab**
 ```python
 # 1. Abrir o notebook principal
-!git clone https://github.com/seu-usuario/brazilian-pasture-synthesis.git
-%cd brazilian-pasture-synthesis
+!git clone https://github.com/Kiwiabacaxi/img-sinth.git
+%cd img-sinth
 
 # 2. Setup automático
 !python setup_colab.py
@@ -305,20 +305,20 @@ config = QualityControlConfig(
 Adoramos contribuições da comunidade! Veja como você pode ajudar:
 
 ### **🐛 Reportar Problemas**
-- Use as [Issues do GitHub](https://github.com/seu-usuario/brazilian-pasture-synthesis/issues)
+- Use as [Issues do GitHub](https://github.com/Kiwiabacaxi/img-sinth/issues)
 - Inclua informações detalhadas sobre o ambiente
 - Screenshots e logs são muito úteis
 
 ### **💡 Sugerir Melhorias**
-- Abra um [Discussion](https://github.com/seu-usuario/brazilian-pasture-synthesis/discussions)
+- Abra um [Discussion](https://github.com/Kiwiabacaxi/img-sinth/discussions)
 - Proposte novas funcionalidades
 - Compartilhe casos de uso interessantes
 
 ### **🔧 Desenvolver**
 ```bash
 # Fork o repositório e clone
-git clone https://github.com/seu-usuario/brazilian-pasture-synthesis.git
-cd brazilian-pasture-synthesis
+git clone https://github.com/Kiwiabacaxi/img-sinth.git
+cd img-sinth
 
 # Criar branch para sua feature
 git checkout -b minha-nova-feature
@@ -346,7 +346,7 @@ Se você usar este sistema em pesquisa acadêmica, por favor cite:
   title={Brazilian Pasture Synthetic Image Generator},
   author={[Seus Nomes Aqui]},
   year={2024},
-  url={https://github.com/seu-usuario/brazilian-pasture-synthesis},
+  url={https://github.com/Kiwiabacaxi/img-sinth},
   version={1.0.0}
 }
 ```
@@ -388,8 +388,8 @@ Se você usar este sistema em pesquisa acadêmica, por favor cite:
 
 **Feito com ❤️ para o agronegócio brasileiro**
 
-[![Stars](https://img.shields.io/github/stars/seu-usuario/brazilian-pasture-synthesis?style=social)](https://github.com/seu-usuario/brazilian-pasture-synthesis/stargazers)
-[![Forks](https://img.shields.io/github/forks/seu-usuario/brazilian-pasture-synthesis?style=social)](https://github.com/seu-usuario/brazilian-pasture-synthesis/network)
-[![Contributors](https://img.shields.io/github/contributors/seu-usuario/brazilian-pasture-synthesis)](https://github.com/seu-usuario/brazilian-pasture-synthesis/graphs/contributors)
+[![Stars](https://img.shields.io/github/stars/Kiwiabacaxi/img-sinth?style=social)](https://github.com/Kiwiabacaxi/img-sinth/stargazers)
+[![Forks](https://img.shields.io/github/forks/Kiwiabacaxi/img-sinth?style=social)](https://github.com/Kiwiabacaxi/img-sinth/network)
+[![Contributors](https://img.shields.io/github/contributors/Kiwiabacaxi/img-sinth)](https://github.com/Kiwiabacaxi/img-sinth/graphs/contributors)
 
 </div>
