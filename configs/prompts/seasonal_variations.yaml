@@ -1,0 +1,155 @@
+# Variações sazonais específicas para pastagens brasileiras
+# Baseado em ciclos climáticos reais do Brasil
+
+# Estação seca (Maio-Setembro)
+dry_season:
+  duration: "May to September"
+  characteristics:
+    temperature: "20-35°C, low humidity"
+    precipitation: "minimal rainfall, drought conditions"
+    daylight: "intense direct sunlight, clear skies"
+    
+  grass_appearance:
+    color: "golden yellow, brown, dried grass"
+    coverage: "50-70% sparse coverage"
+    texture: "dry, brittle, dormant vegetation"
+    height: "shorter, stressed growth"
+    
+  soil_conditions:
+    exposure: "30-70% bare soil visible"
+    color: "red lateritic, compacted brown"
+    texture: "cracked, hardened surface"
+    erosion: "visible cattle trails, compaction"
+    
+  atmospheric:
+    lighting: "intense midday sun, harsh shadows"
+    visibility: "clear, dust particles"
+    wind: "dry winds, dust movement"
+    
+  prompts:
+    cerrado: "Dry season Brazilian cerrado pasture, golden-brown {grass_species} grass {coverage}% coverage, extensive red soil exposure, cracked hardened ground, intense midday sunlight, harsh shadows, scattered termite mounds, gallery forests in background, realistic drone aerial photography"
+    
+    mata_atlantica: "Dry season mata atlântica pasture, dormant {grass_species} grass {coverage}% coverage, brown-yellow vegetation, argisol soil patches visible, filtered sunlight through dry air, forest fragments with stressed vegetation, mountainous backdrop, agricultural landscape photography"
+    
+    pampa: "Dry season pampa grassland, native {grass_species} {coverage}% coverage, golden dried grass, planosol soil exposure, constant dry winds, endless horizon, clear bright sunlight, extensive grazing landscape, aerial photography"
+
+# Estação chuvosa (Outubro-Abril)  
+wet_season:
+  duration: "October to April"
+  characteristics:
+    temperature: "22-32°C, high humidity"
+    precipitation: "abundant rainfall, wet conditions"
+    daylight: "diffuse light, cloudy skies"
+    
+  grass_appearance:
+    color: "vibrant green, lush vegetation"
+    coverage: "85-100% dense coverage"
+    texture: "soft, vigorous growth"
+    height: "tall, healthy development"
+    
+  soil_conditions:
+    exposure: "5-20% minimal soil visible"
+    color: "dark, moist soil"
+    texture: "soft, muddy areas"
+    erosion: "minimal, protected by vegetation"
+    
+  atmospheric:
+    lighting: "diffuse overcast, soft illumination"
+    visibility: "misty, humid conditions"
+    wind: "gentle, moisture-laden"
+    
+  prompts:
+    cerrado: "Rainy season Brazilian cerrado pasture, lush vibrant green {grass_species} grass {coverage}% coverage, dense uniform growth, red latosol soil barely visible, diffuse overcast lighting, soft morning illumination, scattered trees with full foliage, humid atmospheric conditions, realistic drone photography"
+    
+    mata_atlantica: "Wet season mata atlântica pasture, dense green {grass_species} grass {coverage}% coverage, vigorous growth, argisol soil mostly covered, misty humid conditions, forest fragments with lush vegetation, mountainous backdrop shrouded in mist, subtropical climate, agricultural photography"
+    
+    pampa: "Rainy season pampa grassland, dense native {grass_species} {coverage}% coverage, vibrant green grass, planosol soil covered, overcast cloudy sky, gentle winds, endless green horizon, wet season conditions, aerial photography"
+
+# Estação de transição (Março-Maio, Setembro-Novembro)
+transition_season:
+  duration: "March-May, September-November"
+  characteristics:
+    temperature: "variable, 18-30°C"
+    precipitation: "irregular rainfall patterns"
+    daylight: "variable lighting conditions"
+    
+  grass_appearance:
+    color: "mixed green and yellow tones"
+    coverage: "60-85% moderate coverage"
+    texture: "variable growth stages"
+    height: "uneven development"
+    
+  soil_conditions:
+    exposure: "20-40% moderate visibility"
+    color: "mixed moisture levels"
+    texture: "variable hardness"
+    erosion: "moderate trail visibility"
+    
+  atmospheric:
+    lighting: "variable, partly cloudy"
+    visibility: "changing conditions"
+    wind: "variable patterns"
+    
+  prompts:
+    cerrado: "Transition season Brazilian cerrado pasture, mixed green-yellow {grass_species} grass {coverage}% coverage, variable growth patterns, red soil moderately visible, partly cloudy lighting, dynamic weather conditions, scattered vegetation in various stages, realistic agricultural photography"
+    
+    mata_atlantica: "Transitional season mata atlântica pasture, {grass_species} grass {coverage}% coverage in variable growth stages, mixed green and yellow tones, argisol soil partially exposed, changing light conditions, forest fragments with seasonal variation, agricultural landscape"
+    
+    pampa: "Transition season pampa grassland, native {grass_species} {coverage}% coverage, mixed vegetation stages, variable wind patterns, changing atmospheric conditions, partly cloudy sky, seasonal grassland transition, aerial view"
+
+# Microclimas e variações regionais
+regional_variations:
+  norte_cerrado:
+    dry_season: "more intense heat, longer duration"
+    wet_season: "heavy concentrated rains"
+    
+  sul_cerrado:
+    dry_season: "milder, shorter duration" 
+    wet_season: "more distributed rainfall"
+    
+  mata_atlantica_coast:
+    humidity: "constantly high humidity"
+    rainfall: "year-round precipitation"
+    
+  mata_atlantica_interior:
+    dry_season: "more pronounced dry period"
+    temperature: "greater temperature variation"
+    
+  pampa_border:
+    wind: "constant wind patterns"
+    temperature: "greater temperature extremes"
+
+# Padrões fenológicos das gramíneas
+grass_phenology:
+  brachiaria:
+    dry_season: "dormancy, golden color, reduced height"
+    wet_season: "active growth, deep green, maximum height"
+    flowering: "end of wet season, seed heads visible"
+    
+  panicum:
+    dry_season: "partial dormancy, yellow-brown"  
+    wet_season: "vigorous growth, bright green"
+    flowering: "peak wet season, prominent inflorescences"
+    
+  native_grasses:
+    dry_season: "variable responses, mostly dormant"
+    wet_season: "synchronized growth, diverse green tones"
+    flowering: "staggered throughout wet season"
+
+# Eventos climáticos extremos
+extreme_events:
+  drought:
+    appearance: "severely stressed vegetation, 70%+ soil exposure"
+    prompts: "severe drought conditions, dying grass, extensive bare soil, dust, extreme heat stress"
+    
+  flood:
+    appearance: "waterlogged areas, stressed vegetation"
+    prompts: "flooded pasture areas, standing water, stressed grass, muddy conditions"
+    
+  frost:
+    appearance: "damaged grass tips, brown patches"
+    prompts: "frost damage visible, brown grass patches, winter stress signs" 
+    
+  hail:
+    appearance: "damaged vegetation, scattered debris"
+    prompts: "hail damage, torn grass, scattered plant debris, storm aftermath"

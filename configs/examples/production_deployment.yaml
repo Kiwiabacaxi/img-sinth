@@ -1,0 +1,321 @@
+# Configuração para deployment em produção
+# Otimizada para sistemas operacionais reais com foco em velocidade e robustez
+
+deployment_info:
+  name: "Produção - Monitoramento Operacional"
+  description: "Sistema otimizado para uso operacional em fazendas e instituições"
+  difficulty: "intermediate"
+  estimated_setup_time: "3 horas"
+  maintenance_level: "automated"
+  sla_target: "99.5% uptime"
+
+# Configuração de dataset para produção
+dataset_generation:
+  num_images: 8000  # Balanceado entre qualidade e tempo
+  resolution: [768, 768]  # Resolução eficiente
+  output_dir: "/content/production_dataset"
+  
+  # Foco nos biomas mais relevantes para o cliente
+  biome_distribution:
+    cerrado: 0.60  # Concentrar no bioma principal
+    mata_atlantica: 0.25
+    pampa: 0.15
+  
+  # Distribuição sazonal equilibrada
+  season_distribution:
+    seca: 0.45  # Época crítica
+    chuvas: 0.45
+    transicao: 0.10
+  
+  # Foco em cenários operacionais
+  quality_distribution:
+    boa: 0.30
+    moderada: 0.50  # Cenário mais comum
+    degradada: 0.20  # Importante para alertas
+  
+  # Parâmetros otimizados para velocidade
+  guidance_scale_range: [7.5, 9.5]  # Range menor = mais rápido
+  num_inference_steps: 22  # Compromisso qualidade/velocidade
+  use_controlnet: true
+  quality_threshold: 0.75  # Threshold produtivo
+  max_retries: 3
+  
+  # Configurações específicas para produção
+  batch_generation: true  # Gerar em lotes para eficiência
+  parallel_processing: true  # Usar múltiplas GPUs se disponível
+  cache_models: true  # Cachear modelos para reutilização
+
+# Configuração do modelo para produção
+model_training:
+  model_size: "yolov8m"  # Bom compromisso precisão/velocidade
+  task_type: "detect"
+  
+  # Parâmetros otimizados para produção
+  epochs: 150  # Suficiente para boa performance
+  batch_size: 12  # Otimizado para GPUs comuns
+  image_size: 768  # Resolução produtiva
+  
+  # Learning rate conservador
+  learning_rate: 0.008
+  lr_scheduler: "step"  # Scheduler simples e estável
+  patience: 25
+  
+  # Validação focada
+  val_split: 0.18
+  early_stopping: true  # Evitar overfitting
+  
+  # Configurações de robustez
+  label_smoothing: 0.05  # Melhorar generalização
+  dropout: 0.1  # Regularização adicional
+  
+# Classes focadas para produção (simplificadas)
+classes:
+  # Invasoras críticas
+  capim_gordura:
+    id: 0
+    priority: "critical"
+    alert_threshold: 0.7  # Threshold para alertas automáticos
+    action_required: "immediate_control"
+    
+  capim_coloniao:
+    id: 1
+    priority: "high"
+    alert_threshold: 0.75
+    action_required: "scheduled_control"
+    
+  carqueja:
+    id: 2
+    priority: "medium"
+    alert_threshold: 0.8
+    action_required: "monitoring"
+    
+  # Indicadores de degradação
+  area_degradada:
+    id: 3
+    priority: "critical"
+    alert_threshold: 0.6
+    action_required: "rehabilitation"
+    
+  solo_exposto:
+    id: 4
+    priority: "high"
+    alert_threshold: 0.7
+    action_required: "erosion_control"
+    
+  cupinzeiro:
+    id: 5
+    priority: "medium"
+    alert_threshold: 0.8
+    action_required: "monitoring"
+
+# Configuração de augmentação para produção
+augmentation:
+  profile: "balanced"  # Equilíbrio entre realismo e robustez
+  
+  # Parâmetros validados para produção
+  custom_params:
+    # Augmentações moderadas
+    degrees: 2.0
+    translate: 0.1
+    scale: 0.1
+    shear: 0.0
+    
+    # Variações de cor moderadas (condições de campo)
+    hsv_h: 0.015
+    hsv_s: 0.4
+    hsv_v: 0.4
+    
+    # Augmentações de composição limitadas
+    mosaic: 0.6  # Reduzido para manter contexto
+    mixup: 0.05  # Muito baixo
+    
+    # Flips realistas
+    flipud: 0.0
+    fliplr: 0.5
+
+# Configuração de qualidade para produção
+quality_control:
+  threshold_overall: 0.78  # Produtivo mas confiável
+  automated_filtering: true
+  manual_review_threshold: 0.65  # Imagens abaixo precisam revisão
+  
+  # QC específico para produção
+  validate_operational_conditions: true  # Condições reais de campo
+  check_sensor_variations: true  # Diferentes câmeras/drones
+  validate_lighting_conditions: true  # Diferentes horários
+  
+  # Métricas operacionais
+  calculate_operational_metrics: true
+  track_performance_drift: true
+  monitor_class_distribution: true
+
+# Configuração de avaliação operacional
+evaluation:
+  # Métricas principais para produção
+  primary_metrics: ["map50", "precision", "recall", "f1_score"]
+  confidence_threshold: 0.5  # Threshold operacional
+  
+  # Análises específicas para produção
+  false_positive_analysis: true  # Crítico para confiança do usuário
+  false_negative_analysis: true  # Crítico para não perder problemas
+  edge_case_analysis: true  # Cenários difíceis
+  
+  # Teste de stress
+  stress_testing:
+    different_lighting: true
+    weather_conditions: true
+    seasonal_variations: true
+    equipment_variations: true
+  
+  # Performance benchmarks
+  inference_speed_target_ms: 30  # 30ms por imagem
+  throughput_target_images_per_hour: 10000
+  memory_usage_limit_gb: 8
+
+# Configuração de deployment
+deployment:
+  # Formatos de exportação
+  export_formats: ["onnx", "tensorrt", "openvino"]
+  optimization_target: "inference_speed"
+  quantization: "int8"  # Para máxima velocidade
+  
+  # Configurações de runtime
+  runtime_environment: "production"
+  enable_gpu_optimization: true
+  enable_batch_inference: true
+  max_batch_size: 16
+  
+  # Monitoramento
+  enable_performance_monitoring: true
+  enable_accuracy_monitoring: true
+  enable_drift_detection: true
+  
+  # APIs e interfaces
+  rest_api_enabled: true
+  batch_processing_api: true
+  real_time_streaming: true
+  
+# Sistema de alertas operacionais
+alerting_system:
+  enable_alerts: true
+  
+  alert_types:
+    invasive_detection:
+      threshold: "high_confidence"
+      notification_channels: ["email", "sms", "dashboard"]
+      urgency: "high"
+      
+    degradation_detected:
+      threshold: "medium_confidence"
+      notification_channels: ["email", "dashboard"]
+      urgency: "medium"
+      
+    model_performance_drop:
+      threshold: "5% below baseline"
+      notification_channels: ["email", "slack"]
+      urgency: "high"
+      
+    system_overload:
+      threshold: "90% resource usage"
+      notification_channels: ["sms", "slack"]
+      urgency: "critical"
+
+# Configuração de monitoramento contínuo
+monitoring:
+  performance_tracking:
+    enable: true
+    metrics: ["accuracy", "latency", "throughput", "resource_usage"]
+    reporting_interval: "hourly"
+    
+  data_drift_monitoring:
+    enable: true
+    statistical_tests: ["ks_test", "chi_square"]
+    sensitivity: "medium"
+    
+  model_degradation_monitoring:
+    enable: true
+    baseline_performance: 0.85  # mAP baseline
+    alert_threshold: 0.80  # Alert se cair abaixo
+    
+  operational_metrics:
+    uptime_tracking: true
+    error_rate_monitoring: true
+    user_satisfaction_tracking: true
+
+# Configurações de manutenção
+maintenance:
+  automated_retraining:
+    enable: true
+    trigger_conditions:
+      - "performance_drop > 5%"
+      - "data_drift_detected"
+      - "new_data_available > 1000_samples"
+    schedule: "monthly"
+    
+  model_updates:
+    strategy: "blue_green_deployment"
+    validation_requirements:
+      - "performance >= baseline"
+      - "no_regression_in_critical_classes"
+      - "latency <= target"
+    
+  data_management:
+    archive_old_data: true
+    retention_period_months: 24
+    backup_strategy: "incremental_daily"
+    
+# Configurações de segurança e compliance
+security:
+  data_encryption: true
+  access_control: "rbac"  # Role-based access control
+  audit_logging: true
+  privacy_protection: true
+  
+  compliance:
+    gdpr_compliant: true
+    data_anonymization: true
+    consent_management: true
+
+# Configurações de escalabilidade
+scalability:
+  horizontal_scaling:
+    enable: true
+    max_instances: 10
+    auto_scaling_triggers:
+      - "cpu_usage > 80%"
+      - "queue_length > 100"
+      
+  load_balancing:
+    strategy: "round_robin"
+    health_checks: true
+    failover_enabled: true
+    
+  resource_optimization:
+    enable_caching: true
+    connection_pooling: true
+    resource_recycling: true
+
+# SLA e métricas de sucesso
+service_level_agreement:
+  availability: 99.5  # 99.5% uptime
+  response_time_ms: 100  # 95th percentile
+  throughput_images_per_hour: 5000  # Minimum
+  accuracy_baseline: 0.85  # mAP@0.5
+  
+  success_metrics:
+    user_satisfaction: ">4.0/5.0"
+    false_positive_rate: "<10%"
+    false_negative_rate: "<15%"
+    system_reliability: ">99%"
+
+# Plano de recuperação de desastres
+disaster_recovery:
+  backup_frequency: "daily"
+  backup_locations: ["primary_cloud", "secondary_cloud", "local"]
+  recovery_time_objective: "4 hours"
+  recovery_point_objective: "1 hour"
+  
+  contingency_plans:
+    model_failure: "rollback_to_previous_version"
+    data_corruption: "restore_from_backup"
+    infrastructure_failure: "failover_to_secondary"

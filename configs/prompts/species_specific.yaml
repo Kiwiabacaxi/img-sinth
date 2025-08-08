@@ -1,0 +1,181 @@
+# Prompts específicos por espécie de gramínea
+# Baseado em características morfológicas e agronômicas reais
+
+# Brachiaria brizantha (Marandu, Xaraés, Piatã)
+brachiaria_brizantha:
+  scientific_name: "Brachiaria brizantha"
+  common_names: ["capim-marandu", "braquiária-brizanta", "brizantão"]
+  
+  morphological_characteristics:
+    growth_habit: "erect tufted grass, 60-80cm height"
+    leaf_characteristics: "broad linear leaves, 2-4cm wide, pubescent"
+    inflorescence: "4-6 racemes, purple-tinged spikelets"
+    root_system: "deep fibrous roots, drought resistant"
+    
+  seasonal_appearance:
+    wet_season:
+      color: "deep green, vigorous growth"
+      coverage: "85-95% dense stands"
+      height: "60-80cm optimal grazing height"
+      texture: "lush, uniform growth pattern"
+      
+    dry_season:
+      color: "golden-yellow, dormant appearance"
+      coverage: "60-75% reduced density"
+      height: "40-50cm stressed height"
+      texture: "dry, brittle, less palatable"
+      
+    transition:
+      color: "mixed green-yellow patches"
+      coverage: "70-85% recovering growth"
+      height: "50-65cm variable height"
+      texture: "uneven growth stages"
+  
+  specific_prompts:
+    healthy: "Dense Brazilian Brachiaria brizantha (Marandu) pasture, deep green erect tufted grass 70cm height, broad linear leaves, uniform stands 90% coverage, vigorous growth, red latosol soil, realistic agricultural photography"
+    
+    dry_season: "Dormant Brachiaria brizantha pasture in dry season, golden-yellow tufted grass 45cm height, broad leaves with golden coloration, 65% coverage with soil exposure, drought-stressed appearance, realistic field conditions"
+    
+    grazed: "Grazed Brachiaria brizantha pasture, grass maintained at 25-30cm height, uniform grazing pattern, active regrowth visible, good coverage 80%, cattle management system, agricultural documentation"
+
+# Panicum maximum (Colonião, Mombaça, Tanzânia)  
+panicum_maximum:
+  scientific_name: "Panicum maximum"
+  common_names: ["capim-colonião", "mombaça", "tanzânia"]
+  
+  morphological_characteristics:
+    growth_habit: "large tufted grass, 100-150cm height"
+    leaf_characteristics: "wide leaves 3-5cm, smooth texture"
+    inflorescence: "large open panicle, abundant seeds"
+    root_system: "extensive, deep root system"
+    
+  seasonal_appearance:
+    wet_season:
+      color: "bright green, luxuriant growth"
+      coverage: "90-100% complete coverage"
+      height: "100-150cm full height"
+      texture: "dense, tall, productive"
+      
+    dry_season:
+      color: "yellow-brown, senescent"  
+      coverage: "50-70% reduced stands"
+      height: "60-80cm shortened"
+      texture: "coarse, less digestible"
+      
+    transition:
+      color: "variable green to yellow"
+      coverage: "75-85% moderate density"
+      height: "80-120cm recovering"
+      texture: "mixed growth stages"
+  
+  specific_prompts:
+    healthy: "Luxuriant Panicum maximum (Mombaça) pasture, bright green large tufted grass 130cm height, wide smooth leaves, complete coverage 95%, vigorous productive growth, tropical climate, professional agricultural photography"
+    
+    dry_season: "Dormant Panicum maximum in dry season, yellow-brown tall grass 70cm height, senescent wide leaves, 60% coverage with gaps, coarse texture, drought stress visible, field documentation"
+    
+    managed: "Well-managed Panicum maximum pasture, rotationally grazed at 80cm height, uniform regrowth pattern, excellent coverage 85%, sustainable grazing system, agricultural best practices"
+
+# Brachiaria decumbens
+brachiaria_decumbens:
+  scientific_name: "Brachiaria decumbens"  
+  common_names: ["capim-braquiária", "braquiarinha"]
+  
+  morphological_characteristics:
+    growth_habit: "prostrate to semi-erect, 40-60cm"
+    leaf_characteristics: "narrow leaves, hairy surface"
+    inflorescence: "3-5 racemes, spreading habit"
+    root_system: "shallow, spreading stolons"
+    
+  seasonal_appearance:
+    wet_season:
+      color: "medium green, moderate vigor"
+      coverage: "80-90% good density"
+      height: "40-60cm prostrate growth"
+      texture: "soft, palatable"
+      
+    dry_season:
+      color: "pale yellow, stressed"
+      coverage: "50-65% reduced density"  
+      height: "25-35cm shortened"
+      texture: "dry, less nutritious"
+      
+  specific_prompts:
+    healthy: "Brazilian Brachiaria decumbens pasture, medium green prostrate grass 45cm height, narrow hairy leaves, good coverage 85%, spreading growth habit, mata atlântica region, agricultural landscape"
+    
+    degraded: "Degraded Brachiaria decumbens pasture, pale stressed grass 30cm height, poor coverage 45%, visible soil erosion, overgrazing effects, rehabilitation needed, field assessment"
+
+# Gramíneas nativas do Pampa
+native_pampa_grasses:
+  scientific_names: ["Paspalum notatum", "Axonopus affinis", "Sporobolus indicus"]
+  common_names: ["grama-forquilha", "grama-jesuíta", "capim-fino"]
+  
+  morphological_characteristics:
+    growth_habit: "low growing, spreading, 15-40cm"
+    leaf_characteristics: "fine narrow leaves, dense mat"
+    inflorescence: "small delicate seed heads"
+    root_system: "shallow, dense root mat"
+    
+  seasonal_appearance:
+    wet_season:
+      color: "diverse green tones, mixed species"
+      coverage: "90-100% continuous carpet"
+      height: "20-40cm varied heights"
+      texture: "fine, dense grassland"
+      
+    dry_season:
+      color: "golden-brown, dormant mix"
+      coverage: "70-85% persistent coverage"
+      height: "15-25cm shortened"
+      texture: "dry, resilient carpet"
+      
+  specific_prompts:
+    healthy: "Brazilian pampa native grassland, diverse green grass species mix, fine-textured continuous carpet 95% coverage, Paspalum notatum dominant, 30cm average height, natural ecosystem, endless grassland horizon"
+    
+    dry_season: "Native pampa grassland in dry season, golden-brown grass mixture, fine-textured dormant carpet 80% coverage, diverse native species, constant wind movement, extensive natural grassland"
+
+# Características específicas para IA
+ai_generation_notes:
+  brachiaria_brizantha:
+    key_visual_features: "tufted growth, broad leaves, erect habit"
+    avoid: "prostrate growth, narrow leaves, sparse tufts"
+    emphasis: "uniform dense stands, vigorous growth"
+    
+  panicum_maximum:
+    key_visual_features: "large size, tall growth, wide leaves"
+    avoid: "small delicate appearance, narrow leaves"
+    emphasis: "luxuriant growth, large scale"
+    
+  brachiaria_decumbens:  
+    key_visual_features: "prostrate habit, spreading growth"
+    avoid: "tall erect growth, large leaves"
+    emphasis: "ground-hugging, spreading pattern"
+    
+  native_pampa:
+    key_visual_features: "fine texture, mixed species, carpet-like"
+    avoid: "coarse texture, single species dominance"
+    emphasis: "natural diversity, continuous cover"
+
+# Prompts de transição entre espécies
+species_transitions:
+  brachiaria_to_panicum: "Mixed pasture transition, Brachiaria brizantha patches transitioning to Panicum maximum areas, height gradient from 60cm to 120cm, species competition visible"
+  
+  native_invasion: "Native pampa grassland with Brachiaria invasion, fine native grass carpet with scattered Brachiaria patches, species competition, ecological transition"
+  
+  degraded_succession: "Pasture succession stages, degraded areas with pioneer species, Brachiaria establishment, natural recovery process"
+
+# Padrões de pastejo específicos por espécie
+grazing_patterns:
+  brachiaria_brizantha:
+    optimal_height: "25-30cm post-grazing, 60-70cm pre-grazing"
+    grazing_tolerance: "high trampling resistance"
+    regrowth_pattern: "uniform regrowth from base"
+    
+  panicum_maximum:
+    optimal_height: "40-50cm post-grazing, 100-120cm pre-grazing" 
+    grazing_tolerance: "sensitive to overgrazing"
+    regrowth_pattern: "vigorous regrowth when well-managed"
+    
+  native_pampa:
+    optimal_height: "10-15cm continuous grazing"
+    grazing_tolerance: "adapted to continuous grazing"
+    regrowth_pattern: "slow but persistent regrowth"

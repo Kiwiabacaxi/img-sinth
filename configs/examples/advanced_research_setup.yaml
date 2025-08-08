@@ -1,0 +1,311 @@
+# Configuração avançada para pesquisa científica
+# Para usuários experientes buscando máxima qualidade e rigor científico
+
+experiment_info:
+  name: "Pesquisa Científica - Detecção Multi-Bioma"
+  description: "Configuração completa para pesquisa em pastagens brasileiras com rigor científico"
+  difficulty: "advanced"
+  estimated_time_hours: 8
+  hardware_requirements: "Google Colab Pro+ ou workstation com GPU A100/RTX 4090"
+  target_performance: "mAP@0.5 > 0.90"
+
+# Configuração de dataset científico
+dataset_generation:
+  num_images: 25000  # Dataset grande para robustez estatística
+  resolution: [1024, 1024]  # Alta resolução para detalhes finos
+  output_dir: "/content/scientific_dataset"
+  
+  # Distribuição estratificada por biomas
+  biome_distribution:
+    cerrado: 0.45  # Maior bioma brasileiro
+    mata_atlantica: 0.35  # Segundo mais importante
+    pampa: 0.20  # Incluído para generalização
+  
+  # Distribuição sazonal balanceada
+  season_distribution:
+    seca: 0.4  # Época crítica para invasoras
+    chuvas: 0.4  # Crescimento das gramíneas
+    transicao: 0.2  # Períodos intermediários
+  
+  # Distribuição de qualidade realística
+  quality_distribution:
+    boa: 0.25  # Pastagens bem manejadas
+    moderada: 0.50  # Situação mais comum
+    degradada: 0.25  # Problema significativo
+  
+  # Parâmetros de geração otimizados para qualidade
+  guidance_scale_range: [8.0, 12.0]  # Range amplo para diversidade
+  num_inference_steps: 30  # Mais steps = melhor qualidade
+  use_controlnet: true
+  quality_threshold: 0.85  # Threshold alto para pesquisa
+  max_retries: 5  # Persistência na geração de qualidade
+  
+  # Configurações específicas para pesquisa
+  save_generation_metadata: true  # Para reprodutibilidade
+  seed_control: true  # Seeds fixos para experimentos controlados
+  duplicate_detection: true  # Evitar imagens muito similares
+
+# Configuração avançada do modelo YOLO
+model_training:
+  model_size: "yolov8l"  # Modelo grande para máxima precisão
+  task_type: "detect"
+  
+  # Parâmetros de treinamento científicos
+  epochs: 300  # Treinamento longo para convergência completa
+  batch_size: 8  # Ajustado para GPUs de alta memória
+  image_size: 1024  # Resolução completa
+  
+  # Otimização avançada
+  learning_rate: 0.005  # LR menor para modelos grandes
+  lr_scheduler: "cosine"  # Scheduler avançado
+  warmup_epochs: 10  # Warmup mais longo
+  patience: 50  # Mais paciência para melhor convergência
+  
+  # Configurações de validação rigorosas
+  val_split: 0.15  # Split menor para mais dados de treino
+  test_split: 0.15  # Split dedicado para teste final
+  cross_validation: 5  # 5-fold CV para robustez estatística
+  
+  # Ensemble e TTA
+  ensemble_models: 3  # Treinar 3 modelos diferentes
+  test_time_augmentation: true
+  
+# Classes científicas expandidas
+classes:
+  # Espécies invasivas prioritárias
+  capim_gordura:
+    id: 0
+    scientific_name: "Melinis minutiflora"
+    description: "Principal invasora do Cerrado"
+    priority: "critical"
+    min_samples: 3000  # Samples mínimos para esta classe
+    
+  capim_coloniao:
+    id: 1
+    scientific_name: "Megathyrsus maximus"
+    description: "Invasora agressiva multi-bioma"
+    priority: "high"
+    min_samples: 2500
+    
+  capim_annoni:
+    id: 2
+    scientific_name: "Eragrostis plana"
+    description: "Invasora específica do Pampa"
+    priority: "high"
+    min_samples: 1500
+    
+  carqueja:
+    id: 3
+    scientific_name: "Baccharis trimera"
+    description: "Invasora lenhosa regional"
+    priority: "medium"
+    min_samples: 1200
+    
+  samambaia:
+    id: 4
+    scientific_name: "Pteridium aquilinum"
+    description: "Invasora de áreas degradadas"
+    priority: "medium"
+    min_samples: 1000
+    
+  # Estruturas e indicadores
+  cupinzeiro:
+    id: 5
+    description: "Ninhos de cupins - indicador degradação"
+    priority: "high"
+    min_samples: 1500
+    
+  area_degradada:
+    id: 6
+    description: "Áreas com severa perda de cobertura"
+    priority: "critical"
+    min_samples: 2000
+    
+  solo_exposto:
+    id: 7
+    description: "Solo descoberto - erosão crítica"
+    priority: "high"
+    min_samples: 1800
+    
+  # Classes benéficas (controle)
+  graminea_nativa_cerrado:
+    id: 8
+    description: "Gramíneas nativas do Cerrado"
+    species: ["Andropogon gayanus", "Aristida laevis"]
+    priority: "reference"
+    min_samples: 2000
+    
+  graminea_nativa_mata_atlantica:
+    id: 9
+    description: "Gramíneas nativas da Mata Atlântica"
+    species: ["Paspalum notatum", "Axonopus compressus"]
+    priority: "reference"
+    min_samples: 1500
+    
+  graminea_nativa_pampa:
+    id: 10
+    description: "Gramíneas nativas do Pampa"
+    species: ["Andropogon lateralis", "Paspalum plicatulum"]
+    priority: "reference"
+    min_samples: 1200
+
+# Configuração de augmentação científica
+augmentation:
+  profile: "conservative"  # Preservar realismo científico
+  
+  # Parâmetros específicos para pesquisa
+  custom_params:
+    # Augmentações geométricas mínimas
+    degrees: 1.0  # Rotações muito pequenas
+    translate: 0.02  # Translações mínimas
+    scale: 0.05  # Escala mínima
+    shear: 0.0  # Sem shear (não natural em vistas aéreas)
+    perspective: 0.0  # Sem perspectiva artificial
+    
+    # Augmentações de cor conservadoras
+    hsv_h: 0.008  # Variação mínima de matiz
+    hsv_s: 0.3  # Saturação controlada
+    hsv_v: 0.3  # Brilho controlado
+    
+    # Augmentações de composição
+    mosaic: 0.0  # Desabilitado para preservar contexto
+    mixup: 0.0  # Desabilitado para manter realismo
+    copy_paste: 0.0  # Desabilitado para evitar artefatos
+    
+    # Flips
+    flipud: 0.0  # Sem flip vertical
+    fliplr: 0.3  # Flip horizontal ocasional
+
+# Configuração de qualidade científica
+quality_control:
+  threshold_overall: 0.90  # Threshold muito alto
+  threshold_technical: 0.88
+  threshold_agricultural: 0.90
+  threshold_seasonal: 0.85
+  
+  # Métricas científicas
+  calculate_fid_score: true  # Para comparação com literatura
+  calculate_clip_score: true  # Para avaliação semântica
+  calculate_diversity_metrics: true
+  
+  # Validação por especialistas
+  expert_validation_sample: 500  # Amostras para validação manual
+  inter_annotator_agreement: true  # Kappa de Cohen
+  
+  # Filtros automáticos avançados
+  detect_artifacts: true
+  detect_unrealistic_combinations: true
+  validate_biome_consistency: true
+  validate_seasonal_consistency: true
+
+# Configuração de avaliação científica
+evaluation:
+  # Métricas padrão
+  calculate_map: true
+  confidence_thresholds: [0.1, 0.25, 0.5, 0.75, 0.9]
+  iou_thresholds: [0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95]
+  
+  # Análises específicas
+  per_class_analysis: true
+  per_biome_analysis: true
+  per_season_analysis: true
+  confusion_matrix_analysis: true
+  
+  # Comparação com benchmarks
+  compare_with_literature: true
+  statistical_significance_testing: true
+  confidence_intervals: true
+  
+  # Análises de robustez
+  domain_generalization: true  # Teste em biomas não vistos
+  temporal_consistency: true  # Teste em diferentes épocas
+  scale_invariance: true  # Teste em diferentes resoluções
+  
+  # Análises de fairness
+  class_balance_analysis: true
+  bias_detection: true
+  representation_analysis: true
+
+# Configuração de benchmark científico
+benchmarking:
+  compare_against:
+    - name: "Moreno et al. 2023"
+      target_map50: 0.91
+      significance_test: true
+      
+    - name: "Santos & Oliveira 2022"
+      target_map50: 0.83
+      domain: "cerrado_invasives"
+      
+    - name: "Lima & Pereira 2023"
+      target_map50: 0.79
+      domain: "multi_biome"
+  
+  # Testes estatísticos
+  statistical_tests:
+    - "paired_t_test"
+    - "wilcoxon_signed_rank"
+    - "mcnemar_test"  # Para classificação
+    
+  # Relatórios científicos
+  generate_latex_tables: true
+  generate_publication_plots: true
+  calculate_effect_sizes: true
+
+# Configurações de reprodutibilidade
+reproducibility:
+  fix_all_seeds: true
+  save_complete_config: true
+  version_control_data: true
+  log_all_hyperparameters: true
+  save_model_checkpoints: true
+  
+  # Informações do ambiente
+  log_hardware_specs: true
+  log_software_versions: true
+  log_execution_time: true
+  
+  # Validação de reprodutibilidade
+  reproduction_test: true  # Executar mesmo experimento 2x
+  tolerance_threshold: 0.001  # Tolerância para diferenças numéricas
+
+# Métricas de sucesso para pesquisa
+success_criteria:
+  minimum_performance:
+    map50: 0.85
+    map75: 0.70
+    precision: 0.82
+    recall: 0.80
+    
+  target_performance:
+    map50: 0.92
+    map75: 0.78
+    precision: 0.90
+    recall: 0.88
+    
+  scientific_contribution:
+    improvement_over_baseline: 0.05  # 5% melhoria mínima
+    statistical_significance: 0.01  # p < 0.01
+    effect_size: 0.5  # Efeito médio (Cohen's d)
+    
+# Configuração de publicação
+publication_preparation:
+  generate_figures:
+    - "confusion_matrices"
+    - "pr_curves"
+    - "class_performance_comparison"
+    - "biome_comparison"
+    - "seasonal_analysis"
+    - "benchmark_comparison"
+    
+  generate_tables:
+    - "performance_summary"
+    - "statistical_tests_results"
+    - "ablation_studies"
+    - "comparison_with_literature"
+    
+  data_sharing:
+    prepare_dataset_release: true
+    anonymize_sensitive_data: true
+    include_metadata: true
+    create_data_paper: true

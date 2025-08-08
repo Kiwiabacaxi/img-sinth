@@ -1,0 +1,223 @@
+# Padrões de degradação de pastagens brasileiras
+# Baseado em processos ecológicos e agronômicos reais
+
+# Plantas invasoras prioritárias
+invasive_species:
+  
+  # Capim-gordura (Melinis minutiflora)
+  capim_gordura:
+    scientific_name: "Melinis minutiflora"
+    common_names: ["capim-gordura", "capim-meloso"]
+    
+    characteristics:
+      growth_habit: "dense tufted grass, 60-100cm height"
+      appearance: "golden-yellow when mature, sticky leaves"
+      distribution: "patches and dense stands"
+      seasonality: "more visible in dry season"
+      
+    invasion_patterns:
+      early_stage: "scattered small patches 5-10% coverage"
+      moderate: "expanding patches 15-25% coverage" 
+      severe: "dominant stands 30-50% coverage"
+      
+    visual_description:
+      dry_season: "golden dense patches of capim-gordura, sticky golden grass 80cm height, contrasting with native vegetation"
+      wet_season: "green capim-gordura patches, vigorous invasive growth, competing with native grass"
+      
+    specific_prompts:
+      light_invasion: "Brazilian cerrado pasture with light capim-gordura invasion, scattered golden patches 8% coverage, Melinis minutiflora 70cm height, mixed with native Brachiaria, patchy distribution pattern"
+      
+      moderate_invasion: "Cerrado pasture with moderate capim-gordura invasion, golden Melinis minutiflora patches 20% coverage, dense invasive stands 90cm height, competing with native grass, invasion management needed"
+      
+      severe_invasion: "Heavily invaded pasture, capim-gordura (Melinis minutiflora) dominant 40% coverage, dense golden stands, native grass suppressed, severe ecological impact, restoration required"
+
+  # Carqueja (Baccharis trimera)  
+  carqueja:
+    scientific_name: "Baccharis trimera"
+    common_names: ["carqueja", "carqueja-amarga"]
+    
+    characteristics:
+      growth_habit: "woody shrub, 50-120cm height"
+      appearance: "green-gray branched shrub, small leaves"
+      distribution: "scattered individuals to clusters"
+      seasonality: "visible year-round, flowers in autumn"
+      
+    invasion_patterns:
+      early_stage: "scattered individuals 2-5% coverage"
+      moderate: "small clusters 10-15% coverage"
+      severe: "dense thickets 20-30% coverage"
+      
+    visual_description:
+      general: "green-gray woody shrubs scattered in pasture"
+      flowering: "carqueja with white flowers, autumn flowering"
+      
+    specific_prompts:
+      scattered: "Brazilian pasture with scattered carqueja shrubs, Baccharis trimera 80cm height, green-gray woody plants 6% coverage, individual shrubs distributed across grass"
+      
+      clustered: "Pasture with carqueja clusters, Baccharis trimera shrub groups 15% coverage, woody invasion in degraded areas, shrub encroachment pattern"
+      
+      dense: "Heavily invaded pasture, dense carqueja thickets (Baccharis trimera) 25% coverage, woody shrub dominance, grass suppression, severe degradation"
+
+  # Samambaia-das-taperas (Pteridium aquilinum)
+  samambaia:
+    scientific_name: "Pteridium aquilinum"
+    common_names: ["samambaia", "samambaia-das-taperas", "samambaia-do-campo"]
+    
+    characteristics:
+      growth_habit: "large fern, 80-200cm height"
+      appearance: "bright green triangular fronds"
+      distribution: "dense colonies and patches"
+      seasonality: "more vigorous in wet season"
+      
+    invasion_patterns:
+      early_stage: "small patches 5-8% coverage"
+      moderate: "expanding colonies 15-25% coverage"
+      severe: "dominant stands 30-45% coverage"
+      
+    visual_description:
+      wet_season: "bright green samambaia colonies, large triangular fronds, vigorous fern growth"
+      dry_season: "brown dried samambaia patches, senescent fern fronds"
+      
+    specific_prompts:
+      patches: "Mata atlântica pasture with samambaia patches, bright green Pteridium aquilinum colonies 12% coverage, large triangular fronds 120cm height, fern invasion in humid areas"
+      
+      dominant: "Heavily invaded pasture, samambaia (Pteridium aquilinum) dominant 35% coverage, dense fern colonies, bright green fronds, grass completely suppressed"
+
+# Padrões de degradação por causas
+degradation_causes:
+
+  # Superpastejo
+  overgrazing:
+    characteristics:
+      soil_exposure: "50-80% bare soil visible"
+      grass_condition: "sparse, short, stressed vegetation"
+      compaction: "hard compacted surface, cattle trails"
+      erosion: "visible erosion channels, gullies"
+      
+    stages:
+      light: "patchy grass coverage 60-70%, moderate soil exposure"
+      moderate: "sparse grass 40-50%, significant bare areas"
+      severe: "very sparse vegetation <30%, extensive erosion"
+      
+    prompts:
+      light: "Lightly overgrazed pasture, patchy grass coverage 65%, moderate soil exposure, cattle trails visible, early degradation signs"
+      
+      moderate: "Moderately overgrazed pasture, sparse grass 45% coverage, significant bare soil areas, compaction visible, erosion beginning"
+      
+      severe: "Severely overgrazed pasture, very sparse dying grass 25% coverage, extensive bare red soil, deep cattle trails, erosion channels, severe degradation"
+
+  # Compactação do solo
+  soil_compaction:
+    characteristics:
+      surface: "hard compacted layer, reduced infiltration"
+      vegetation: "stunted grass growth, poor root development"
+      water: "surface runoff, puddle formation"
+      patterns: "trail networks, gateway compaction"
+      
+    prompts:
+      gateway: "Pasture gateway area, severe soil compaction, bare hardpan surface, stunted grass around water points, cattle congregation effects"
+      
+      trails: "Compacted cattle trails network, hard packed soil surfaces, grass suppression along pathways, poor water infiltration areas"
+      
+      general: "Compacted pasture, hard soil surface, stunted grass growth, poor vegetation establishment, surface water runoff patterns"
+
+  # Erosão
+  erosion:
+    types:
+      sheet: "uniform soil loss, thin layer removal"
+      rill: "small channels, concentrated flow"
+      gully: "deep channels, severe cutting"
+      
+    characteristics:
+      patterns: "erosion channels, exposed subsoil"
+      vegetation: "grass loss along erosion lines"
+      soil_color: "exposed red subsoil, different soil layers"
+      
+    prompts:
+      sheet: "Sheet erosion in pasture, uniform soil loss, thin grass coverage, exposed subsoil patches, gradual degradation process"
+      
+      rill: "Pasture with rill erosion, small erosion channels, concentrated water flow patterns, grass loss along waterways"
+      
+      gully: "Severe gully erosion, deep erosion channels cutting through pasture, exposed red subsoil layers, severe soil loss, rehabilitation needed"
+
+# Cupinzeiros (termite mounds)
+termite_mounds:
+  characteristics:
+    size: "0.5-3m diameter, 0.2-1.5m height"
+    appearance: "red-brown soil mounds, dome-shaped"
+    distribution: "scattered across landscape, clustered in degraded areas"
+    vegetation: "bare soil on mounds, different grass around"
+    
+  density_levels:
+    low: "scattered termite mounds, 1-3 per hectare"
+    moderate: "moderate density, 4-8 per hectare" 
+    high: "high density, >10 per hectare in degraded areas"
+    
+  prompts:
+    scattered: "Cerrado pasture with scattered termite mounds, red-brown soil dome structures 1m diameter, cupinzeiros distributed across landscape, natural savanna features"
+    
+    clustered: "Degraded pasture with clustered termite mounds, multiple cupinzeiros 1.5m height, red soil mounds indicating degradation, high termite activity areas"
+
+# Combinações de degradação
+combined_degradation:
+  overgrazing_plus_invasion:
+    description: "Overgrazed areas invaded by unpalatable species"
+    prompts: "Overgrazed pasture invaded by carqueja and capim-gordura, sparse native grass 30% coverage, woody shrubs and invasive grass patches, multiple degradation factors, complex restoration needed"
+    
+  compaction_plus_erosion:
+    description: "Soil compaction leading to erosion"
+    prompts: "Compacted pasture with erosion development, hard soil surface with rill formation, poor grass establishment, water runoff channels, progressive degradation"
+    
+  invasion_plus_termites:
+    description: "Invasive species establishment around termite mounds"
+    prompts: "Pasture with termite mounds invaded by samambaia, bright green fern colonies around cupinzeiros, altered soil conditions favoring invasion, localized degradation pattern"
+
+# Estágios de recuperação
+recovery_stages:
+  early_recovery:
+    description: "Initial signs of improvement"
+    prompts: "Early pasture recovery, sparse grass regrowth 40% coverage, young shoots establishing, reduced erosion, initial improvement signs, restoration beginning"
+    
+  moderate_recovery:
+    description: "Significant improvement visible"
+    prompts: "Recovering pasture, moderate grass coverage 65%, improved vegetation establishment, erosion control visible, successful restoration progress"
+    
+  advanced_recovery:
+    description: "Well-established recovery"
+    prompts: "Well-recovered pasture, good grass coverage 80%, healthy vegetation establishment, erosion controlled, successful restoration, sustainable management"
+
+# Indicadores visuais de qualidade
+quality_indicators:
+  excellent_pasture:
+    coverage: "90-100% grass coverage"
+    uniformity: "uniform growth pattern"
+    soil: "minimal soil exposure <10%"
+    health: "vigorous green growth"
+    
+  good_pasture:
+    coverage: "75-90% grass coverage"
+    uniformity: "mostly uniform with patches"
+    soil: "limited soil exposure 10-25%"
+    health: "healthy growth with some variation"
+    
+  moderate_pasture:
+    coverage: "50-75% grass coverage"
+    uniformity: "patchy growth pattern"
+    soil: "moderate soil exposure 25-50%"
+    health: "variable grass health"
+    
+  poor_pasture:
+    coverage: "<50% grass coverage"
+    uniformity: "very patchy, bare areas"
+    soil: "extensive soil exposure >50%"
+    health: "stressed, sparse vegetation"
+
+# Prompts para controle de qualidade
+quality_assessment_prompts:
+  excellent: "Excellent Brazilian pasture quality, 95% uniform grass coverage, vigorous green growth, minimal soil exposure, optimal grazing management, high productivity system"
+  
+  good: "Good quality pasture, 85% grass coverage, healthy vegetation with minor patches, limited soil exposure, well-managed grazing system"
+  
+  moderate: "Moderate pasture quality, 60% grass coverage, patchy growth pattern, moderate soil exposure, management improvement needed"
+  
+  poor: "Poor quality degraded pasture, 35% sparse grass coverage, extensive soil exposure, multiple degradation factors, urgent restoration required"

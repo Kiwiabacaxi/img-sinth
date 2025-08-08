@@ -1,0 +1,280 @@
+# Configurações otimizadas para Google Colab
+# Diferentes perfis baseados no tipo de instância Colab
+
+colab_free:
+  name: "Google Colab Gratuito"
+  description: "Configuração otimizada para Colab gratuito com GPU T4"
+  hardware_profile:
+    gpu: "Tesla T4"
+    gpu_memory_gb: 16
+    ram_gb: 13
+    disk_gb: 25
+    max_session_hours: 12
+  
+  recommended_config:
+    model_size: "yolov8s"
+    max_dataset_size: 3000
+    batch_size: 8
+    image_resolution: [768, 768]
+    num_inference_steps: 20
+    use_controlnet: true
+    
+  memory_optimizations:
+    enable_attention_slicing: true
+    enable_cpu_offload: false  # T4 tem memória suficiente
+    enable_xformers: true
+    gradient_checkpointing: true
+    
+  generation_params:
+    guidance_scale_range: [7.0, 9.0]
+    quality_threshold: 0.65  # Mais permissivo para economizar tempo
+    max_retries: 2
+    save_intermediate: false
+    
+  warnings:
+    - "Sessões gratuitas podem ser interrompidas após 12h"
+    - "Limite de GPU pode ser aplicado após uso intensivo"
+    - "Recomendado salvar checkpoints frequentemente"
+
+colab_pro:
+  name: "Google Colab Pro"
+  description: "Configuração para Colab Pro com acesso prioritário"
+  hardware_profile:
+    gpu: "Tesla V100 ou P100"
+    gpu_memory_gb: 16-32
+    ram_gb: 25
+    disk_gb: 100
+    max_session_hours: 24
+  
+  recommended_config:
+    model_size: "yolov8m"
+    max_dataset_size: 8000
+    batch_size: 16
+    image_resolution: [1024, 1024]
+    num_inference_steps: 25
+    use_controlnet: true
+    
+  memory_optimizations:
+    enable_attention_slicing: false
+    enable_cpu_offload: false
+    enable_xformers: true
+    gradient_checkpointing: false  # Mais memória disponível
+    
+  generation_params:
+    guidance_scale_range: [7.0, 10.0]
+    quality_threshold: 0.75
+    max_retries: 3
+    save_intermediate: true
+    
+  benefits:
+    - "Sessões mais longas e estáveis"
+    - "Acesso prioritário a GPUs melhores"
+    - "Mais espaço de armazenamento"
+
+colab_pro_plus:
+  name: "Google Colab Pro+"
+  description: "Configuração premium com A100 e recursos máximos"
+  hardware_profile:
+    gpu: "Tesla A100"
+    gpu_memory_gb: 40
+    ram_gb: 50
+    disk_gb: 200
+    max_session_hours: 24
+  
+  recommended_config:
+    model_size: "yolov8l"
+    max_dataset_size: 20000
+    batch_size: 32
+    image_resolution: [1024, 1024]
+    num_inference_steps: 30
+    use_controlnet: true
+    
+  memory_optimizations:
+    enable_attention_slicing: false
+    enable_cpu_offload: false
+    enable_xformers: true
+    gradient_checkpointing: false
+    mixed_precision: "fp16"
+    
+  generation_params:
+    guidance_scale_range: [7.0, 12.0]
+    quality_threshold: 0.85
+    max_retries: 5
+    save_intermediate: true
+    
+  advanced_features:
+    - "Treinamento de múltiplos modelos simultâneos"
+    - "Datasets de alta resolução (2048x2048)"
+    - "Benchmarking científico completo"
+
+# Configurações específicas por tipo de projeto
+project_types:
+  research:
+    name: "Pesquisa Científica"
+    description: "Para publicações e benchmarks rigorosos"
+    priorities:
+      - "Máxima qualidade e reprodutibilidade"
+      - "Documentação detalhada de resultados"
+      - "Comparação com literatura científica"
+    
+    recommended_settings:
+      model_size: "yolov8l ou yolov8x"
+      dataset_size: 15000
+      quality_threshold: 0.9
+      validation_splits: 5  # 5-fold cross-validation
+      statistical_testing: true
+      
+    required_outputs:
+      - "Relatórios de benchmark detalhados"
+      - "Intervalos de confiança"
+      - "Significância estatística"
+      - "Reprodutibilidade completa"
+
+  production:
+    name: "Aplicação em Produção"
+    description: "Para sistemas operacionais reais"
+    priorities:
+      - "Velocidade de inferência"
+      - "Robustez e confiabilidade"
+      - "Facilidade de deploy"
+    
+    recommended_settings:
+      model_size: "yolov8s ou yolov8m"
+      dataset_size: 8000
+      quality_threshold: 0.8
+      optimization_focus: "speed"
+      export_formats: ["onnx", "tensorrt"]
+      
+    quality_assurance:
+      - "Testes em diferentes condições"
+      - "Validação com dados reais"
+      - "Monitoramento de drift"
+
+  education:
+    name: "Ensino e Aprendizado"
+    description: "Para fins educacionais e demonstrativos"
+    priorities:
+      - "Facilidade de uso"
+      - "Explicabilidade"
+      - "Resultados rápidos"
+    
+    recommended_settings:
+      model_size: "yolov8n ou yolov8s"
+      dataset_size: 2000
+      quality_threshold: 0.65
+      interactive_notebooks: true
+      detailed_explanations: true
+      
+    educational_features:
+      - "Explicações passo-a-passo"
+      - "Visualizações interativas"
+      - "Exercícios práticos"
+
+  prototype:
+    name: "Prototipagem Rápida"
+    description: "Para testes rápidos e proof-of-concept"
+    priorities:
+      - "Velocidade de desenvolvimento"
+      - "Flexibilidade"
+      - "Baixo custo computacional"
+    
+    recommended_settings:
+      model_size: "yolov8n"
+      dataset_size: 1000
+      quality_threshold: 0.6
+      epochs: 50
+      quick_iterations: true
+
+# Troubleshooting automático
+auto_adjustments:
+  memory_issues:
+    triggers:
+      - "CUDA out of memory"
+      - "RuntimeError: CUDA error"
+    solutions:
+      - action: "reduce_batch_size"
+        factor: 0.5
+      - action: "enable_cpu_offload"
+        condition: "if batch_size < 4"
+      - action: "reduce_image_size"
+        new_size: [512, 512]
+        
+  slow_generation:
+    triggers:
+      - "Generation time > 5min per image"
+    solutions:
+      - action: "reduce_inference_steps"
+        new_steps: 15
+      - action: "disable_controlnet"
+        condition: "if not critical"
+      - action: "enable_attention_slicing"
+        
+  quality_issues:
+    triggers:
+      - "Average quality score < threshold"
+    solutions:
+      - action: "increase_guidance_scale"
+        new_range: [8.0, 12.0]
+      - action: "improve_prompts"
+        method: "load_enhanced_prompts"
+      - action: "increase_inference_steps"
+        new_steps: 30
+
+# Scripts de setup automático
+setup_scripts:
+  dependencies_check:
+    script: |
+      import subprocess, sys
+      required = ['torch', 'diffusers', 'ultralytics', 'opencv-python']
+      for package in required:
+          try:
+              __import__(package)
+          except ImportError:
+              subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+      print("✅ Todas as dependências instaladas!")
+      
+  gpu_validation:
+    script: |
+      import torch
+      if torch.cuda.is_available():
+          gpu_name = torch.cuda.get_device_name()
+          gpu_memory = torch.cuda.get_device_properties(0).total_memory / 1e9
+          print(f"✅ GPU: {gpu_name} ({gpu_memory:.1f}GB)")
+          return gpu_name, gpu_memory
+      else:
+          print("⚠️ GPU não disponível - usando CPU")
+          return None, 0
+          
+  storage_check:
+    script: |
+      import shutil
+      free_space = shutil.disk_usage("/content").free / 1e9
+      if free_space < 5:
+          print(f"⚠️ Pouco espaço livre: {free_space:.1f}GB")
+          print("Executando limpeza automática...")
+          # Comandos de limpeza aqui
+      else:
+          print(f"✅ Espaço disponível: {free_space:.1f}GB")
+      return free_space
+
+# Monitoramento de recursos
+resource_monitoring:
+  enable: true
+  check_interval_minutes: 5
+  alerts:
+    gpu_memory_threshold: 0.9  # 90% de uso
+    ram_threshold: 0.85  # 85% de uso
+    disk_threshold: 0.8  # 80% de uso
+    
+  actions:
+    high_gpu_usage:
+      - "Limpar cache CUDA"
+      - "Reduzir batch size temporariamente"
+    
+    high_ram_usage:
+      - "Garbage collection forçado"
+      - "Liberar variáveis desnecessárias"
+    
+    low_disk_space:
+      - "Limpar arquivos temporários"
+      - "Compactar datasets antigos"

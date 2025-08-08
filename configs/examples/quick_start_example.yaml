@@ -1,0 +1,177 @@
+# Exemplo de configuração rápida para iniciantes
+# Este arquivo demonstra como configurar o sistema para seu primeiro experimento
+
+# Informações sobre este exemplo
+example_info:
+  name: "Primeiro Experimento - Detecção Básica"
+  description: "Configuração simples para gerar e treinar um modelo básico de detecção de invasoras"
+  difficulty: "beginner"
+  estimated_time_minutes: 120
+  hardware_requirements: "Google Colab (grátis ou pro)"
+
+# Configuração do dataset sintético
+dataset_generation:
+  num_images: 2000  # Quantidade pequena para teste rápido
+  resolution: [768, 768]  # Resolução intermediária
+  output_dir: "/content/my_first_dataset"
+  
+  # Distribuição por biomas (focar em um para simplificar)
+  biome_distribution:
+    cerrado: 0.8  # 80% Cerrado (mais comum)
+    mata_atlantica: 0.2  # 20% Mata Atlântica
+    pampa: 0.0  # Sem Pampa por enquanto
+  
+  # Distribuição sazonal balanceada
+  season_distribution:
+    seca: 0.5
+    chuvas: 0.5
+    transicao: 0.0
+  
+  # Distribuição de qualidade (focar em qualidade boa/moderada)
+  quality_distribution:
+    boa: 0.4
+    moderada: 0.6
+    degradada: 0.0  # Sem degradada para simplificar
+  
+  # Parâmetros de geração
+  guidance_scale_range: [7.0, 9.0]  # Valores conservadores
+  num_inference_steps: 20  # Menos steps = mais rápido
+  use_controlnet: true
+  quality_threshold: 0.6  # Threshold mais baixo para aceitar mais imagens
+  max_retries: 2
+
+# Configuração do modelo YOLO
+model_training:
+  model_size: "yolov8s"  # Modelo pequeno e rápido
+  task_type: "detect"  # Apenas detecção
+  
+  # Parâmetros de treinamento otimizados para rapidez
+  epochs: 50  # Menos épocas para teste
+  batch_size: 16  # Ajustado automaticamente baseado na GPU
+  image_size: 640  # Tamanho padrão
+  
+  # Learning rate e otimização
+  learning_rate: 0.01
+  patience: 15  # Parar mais cedo se não melhorar
+  
+  # Configuração de validação
+  val_split: 0.2
+  save_period: 10  # Salvar checkpoint a cada 10 épocas
+
+# Classes a serem detectadas (simplificado)
+classes:
+  capim_gordura:
+    id: 0
+    description: "Melinis minutiflora - invasora mais importante"
+    priority: "high"
+  
+  area_degradada:
+    id: 1  
+    description: "Áreas com degradação visível"
+    priority: "high"
+  
+  graminea_nativa:
+    id: 2
+    description: "Gramíneas nativas saudáveis"
+    priority: "medium"
+
+# Configuração de augmentação (conservadora)
+augmentation:
+  profile: "conservative"  # Usar perfil pré-definido
+  custom_params:
+    mosaic: 0.5  # Reduzido para manter realismo
+    mixup: 0.0  # Desabilitado para simplicidade
+    degrees: 1.0  # Rotação mínima
+    fliplr: 0.5  # Apenas flip horizontal
+
+# Configuração de qualidade
+quality_control:
+  threshold: 0.6  # Mais permissivo para iniciantes
+  save_rejected: false  # Não salvar imagens rejeitadas
+  detailed_analysis: false  # Análise simplificada
+
+# Configuração de avaliação
+evaluation:
+  run_benchmark: true
+  generate_visualizations: true
+  max_prediction_samples: 20
+  confidence_threshold: 0.25
+
+# Passos recomendados para executar este exemplo
+recommended_steps:
+  - step: 1
+    action: "Setup do ambiente"
+    notebook: "00_Setup_Environment.ipynb"
+    estimated_minutes: 5
+    
+  - step: 2
+    action: "Geração do dataset"
+    notebook: "02_Generate_Dataset.ipynb"  
+    estimated_minutes: 45
+    notes: "Use exatamente as configurações acima"
+    
+  - step: 3
+    action: "Controle de qualidade"
+    notebook: "03_Quality_Control.ipynb"
+    estimated_minutes: 10
+    notes: "Opcional - apenas para verificar qualidade"
+    
+  - step: 4
+    action: "Treinamento do modelo"
+    notebook: "04_YOLO_Training.ipynb"
+    estimated_minutes: 60
+    notes: "Pode demorar mais dependendo da GPU"
+    
+  - step: 5
+    action: "Avaliação dos resultados"
+    notebook: "05_Evaluation_Benchmark.ipynb"
+    estimated_minutes: 15
+    notes: "Verificar performance e comparar com benchmarks"
+
+# Resultados esperados
+expected_results:
+  training_time_minutes: 45
+  final_model_size_mb: 22
+  expected_performance:
+    map50: 0.65  # Performance inicial esperada
+    precision: 0.60
+    recall: 0.58
+    inference_time_ms: 3
+  
+  interpretation:
+    map50_above_0.6: "Bom para primeiro experimento!"
+    map50_below_0.5: "Normal para primeiro teste. Tente aumentar epochs ou dataset"
+    precision_low: "Muitos falsos positivos. Ajustar confidence threshold"
+    recall_low: "Perdendo detecções. Dataset pode precisar de mais exemplos"
+
+# Troubleshooting comum
+common_issues:
+  gpu_memory_error:
+    solution: "Reduzir batch_size para 8 ou 4"
+    alternative: "Usar yolov8n ao invés de yolov8s"
+    
+  training_muito_lento:
+    solution: "Reduzir num_images para 1000"
+    alternative: "Usar resolução 512x512"
+    
+  qualidade_baixa:
+    solution: "Aumentar quality_threshold para 0.7"
+    alternative: "Verificar se prompts estão adequados"
+    
+  erro_de_espaco:
+    solution: "Limpar arquivos temporários"
+    command: "!rm -rf /tmp/* /content/sample_data"
+
+# Próximos experimentos sugeridos
+next_experiments:
+  - name: "Aumentar complexidade"
+    changes: ["Adicionar mais classes", "Usar yolov8m", "Aumentar dataset para 5000"]
+    expected_improvement: "mAP +0.1-0.15"
+    
+  - name: "Focar em bioma específico"
+    changes: ["100% cerrado", "Adicionar mais variações sazonais"]
+    expected_improvement: "mAP +0.05-0.1"
+    
+  - name: "Otimizar para velocidade"
+    changes: ["Usar yolov8n", "Reduzir image_size para 512", "TensorRT optimization"]
+    trade_off: "mAP -0.05 mas inferência 2x mais rápida"

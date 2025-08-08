@@ -1,0 +1,132 @@
+# Prompts base para geração de pastagens brasileiras
+# Baseado em dados científicos e características específicas de cada bioma
+
+# Templates fundamentais por bioma
+biomes:
+  cerrado:
+    base_template: "Brazilian cerrado pasture in {season} season, {grass_species} grass with {coverage}% coverage, red latosol soil {soil_visibility}, {lighting_condition}, {invasive_description}, scattered termite mounds, gallery forests in distance, realistic drone aerial photography, agricultural field, high resolution, photorealistic, detailed"
+    
+    characteristics:
+      soil: "red latosol soil"
+      topography: "0-25° gentle slopes"
+      vegetation: "scattered trees, gallery forests"
+      features: "termite mounds, cattle trails"
+    
+    lighting:
+      dry_season: "intense midday sunlight, harsh shadows, bright direct lighting"
+      wet_season: "diffuse overcast light, soft morning illumination" 
+      transition: "variable lighting conditions, partly cloudy sky"
+    
+  mata_atlantica:
+    base_template: "Brazilian mata atlântica pasture in {season} season, {grass_species} grass with {coverage}% coverage, argisol soil {soil_visibility}, {lighting_condition}, {invasive_description}, forest fragments visible, mountainous backdrop, humid subtropical climate, realistic drone photography, agricultural landscape, high resolution, photorealistic"
+    
+    characteristics:
+      soil: "argisol/cambisol soil"
+      topography: "5-45° rolling hills, steep slopes"
+      vegetation: "forest fragments, dense vegetation borders"
+      features: "streams, rocky outcrops"
+    
+    lighting:
+      dry_season: "filtered sunlight through humidity, soft shadows"
+      wet_season: "diffuse light, misty conditions, high humidity"
+      transition: "dynamic lighting, cloud shadows"
+    
+  pampa:
+    base_template: "Brazilian pampa grassland in {season} season, native {grass_species} with {coverage}% coverage, planosol soil {soil_visibility}, {lighting_condition}, {invasive_description}, constant wind patterns, endless grassland horizon, realistic aerial photography, extensive grazing system, high resolution, photorealistic"
+    
+    characteristics:
+      soil: "planosol, shallow soils"
+      topography: "gentle undulating plains, flat landscape"
+      vegetation: "native grassland, sparse trees"
+      features: "wind patterns, extensive areas"
+    
+    lighting:
+      dry_season: "clear bright sunlight, strong winds"
+      wet_season: "overcast conditions, windy weather"
+      transition: "variable wind patterns, changing light"
+
+# Espécies de gramíneas por bioma
+grass_species:
+  cerrado:
+    - "Brachiaria brizantha"
+    - "Panicum maximum" 
+    - "Andropogon gayanus"
+    - "Brachiaria humidicola"
+    - "Stylosanthes guianensis"
+    
+  mata_atlantica:
+    - "Brachiaria decumbens"
+    - "Panicum maximum"
+    - "Pennisetum purpureum"
+    - "Brachiaria brizantha"
+    - "Paspalum notatum"
+    
+  pampa:
+    - "native grasses mix"
+    - "Brachiaria species"
+    - "Paspalum notatum"
+    - "Axonopus affinis"
+    - "Cynodon dactylon"
+
+# Negative prompts por categoria
+negative_prompts:
+  basic: "cartoon, painting, illustration, 3d render, unrealistic, blurry, low quality, distorted, artificial looking, oversaturated, undersaturated"
+  
+  agricultural: "urban elements, buildings, roads, asphalt, concrete, people, vehicles, power lines, industrial structures, cities, houses"
+  
+  quality: "noise, artifacts, watermark, text, logo, signature, jpeg artifacts, compression artifacts, pixelated, low resolution"
+  
+  biological: "unnatural colors, purple grass, blue soil, impossible plant formations, alien vegetation, fantasy elements"
+  
+  seasonal_inconsistency: "snow, ice, desert plants, tropical rainforest, palm trees, cactus, alpine vegetation"
+
+# Prompts de qualidade por categoria
+quality_descriptors:
+  excellent:
+    - "professional agricultural photography"
+    - "high resolution drone aerial view"
+    - "photorealistic agricultural documentation" 
+    - "scientific field photography"
+    - "detailed agricultural survey"
+    
+  good:
+    - "clear aerial photography"
+    - "realistic field conditions"
+    - "agricultural landscape view"
+    - "pasture documentation"
+    
+  moderate:
+    - "field photography"
+    - "pasture landscape"
+    - "agricultural area"
+
+# Condições climáticas específicas
+weather_conditions:
+  dry_season:
+    - "intense sunlight, clear sky"
+    - "harsh midday lighting"
+    - "bright direct illumination"
+    - "strong shadows, high contrast"
+    - "dust particles in air"
+    
+  wet_season:
+    - "overcast cloudy sky"
+    - "diffuse lighting conditions"
+    - "soft morning light"
+    - "misty atmospheric conditions"
+    - "humid air, light fog"
+    
+  transition:
+    - "partly cloudy conditions"
+    - "variable lighting"
+    - "dynamic weather patterns" 
+    - "changing atmospheric conditions"
+
+# Padrões de composição
+composition_styles:
+  - "aerial drone photography"
+  - "top-down view"
+  - "45-degree angle view"
+  - "panoramic landscape"
+  - "detailed close-up section"
+  - "wide agricultural vista"

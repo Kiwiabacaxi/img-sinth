@@ -1,0 +1,417 @@
+# Configurações de modelos para pastagens brasileiras
+# Otimizadas baseadas em benchmarks científicos
+
+# Configurações base por tipo de modelo YOLO
+yolo_models:
+  yolov8n:
+    description: "Modelo nano - rápido, menor precisão"
+    recommended_use: "Protótipos, testes rápidos"
+    parameters: 3.2M
+    gflops: 8.7
+    training_config:
+      epochs: 100
+      batch_size: 32
+      learning_rate: 0.01
+      image_size: 640
+      patience: 20
+    hardware_requirements:
+      min_gpu_memory: 4
+      recommended_gpu: "T4, GTX 1660"
+    expected_performance:
+      map50: 0.75
+      inference_speed_ms: 1.5
+
+  yolov8s:
+    description: "Modelo small - balanceado"
+    recommended_use: "Aplicações gerais, boa relação velocidade/precisão"
+    parameters: 11.2M
+    gflops: 28.6
+    training_config:
+      epochs: 150
+      batch_size: 16
+      learning_rate: 0.01
+      image_size: 640
+      patience: 25
+    hardware_requirements:
+      min_gpu_memory: 6
+      recommended_gpu: "T4, RTX 3060"
+    expected_performance:
+      map50: 0.82
+      inference_speed_ms: 2.5
+
+  yolov8m:
+    description: "Modelo medium - alta precisão"
+    recommended_use: "Aplicações críticas, monitoramento científico"
+    parameters: 25.9M
+    gflops: 78.9
+    training_config:
+      epochs: 200
+      batch_size: 8
+      learning_rate: 0.008
+      image_size: 640
+      patience: 30
+    hardware_requirements:
+      min_gpu_memory: 10
+      recommended_gpu: "V100, RTX 3080"
+    expected_performance:
+      map50: 0.86
+      inference_speed_ms: 4.5
+
+  yolov8l:
+    description: "Modelo large - máxima precisão"
+    recommended_use: "Pesquisa, benchmarks científicos"
+    parameters: 43.7M
+    gflops: 165.2
+    training_config:
+      epochs: 250
+      batch_size: 4
+      learning_rate: 0.005
+      image_size: 1024
+      patience: 35
+    hardware_requirements:
+      min_gpu_memory: 16
+      recommended_gpu: "V100, A100, RTX 4090"
+    expected_performance:
+      map50: 0.89
+      inference_speed_ms: 8.5
+
+  yolov8x:
+    description: "Modelo extra-large - estado da arte"
+    recommended_use: "Pesquisa avançada, publicações científicas"
+    parameters: 68.2M
+    gflops: 257.8
+    training_config:
+      epochs: 300
+      batch_size: 2
+      learning_rate: 0.003
+      image_size: 1024
+      patience: 40
+    hardware_requirements:
+      min_gpu_memory: 24
+      recommended_gpu: "A100, RTX 4090"
+    expected_performance:
+      map50: 0.91
+      inference_speed_ms: 15.0
+
+# Configurações específicas por tarefa
+task_configs:
+  detection:
+    description: "Detecção de objetos (bounding boxes)"
+    classes:
+      capim_gordura:
+        id: 0
+        type: "invasive"
+        priority: "high"
+        description: "Melinis minutiflora - principal espécie invasiva"
+        color: [255, 0, 0]
+      
+      carqueja:
+        id: 1
+        type: "invasive"
+        priority: "medium"
+        description: "Baccharis trimera - invasora regional"
+        color: [255, 128, 0]
+      
+      samambaia:
+        id: 2
+        type: "invasive"
+        priority: "low"
+        description: "Pteridium aquilinum - invasora secundária"
+        color: [255, 255, 0]
+      
+      cupinzeiro:
+        id: 3
+        type: "structure"
+        priority: "medium"
+        description: "Ninhos de cupins - indicador de degradação"
+        color: [128, 64, 0]
+      
+      area_degradada:
+        id: 4
+        type: "degradation"
+        priority: "high"
+        description: "Áreas com perda significativa de cobertura"
+        color: [128, 0, 0]
+      
+      graminea_nativa:
+        id: 5
+        type: "beneficial"
+        priority: "medium"
+        description: "Gramíneas nativas benéficas"
+        color: [0, 255, 0]
+      
+      solo_exposto:
+        id: 6
+        type: "degradation"
+        priority: "high"
+        description: "Solo sem cobertura vegetal"
+        color: [160, 82, 45]
+      
+      vegetacao_lenhosa:
+        id: 7
+        type: "structure"
+        priority: "low"
+        description: "Arbustos e árvores"
+        color: [34, 139, 34]
+
+  segmentation:
+    description: "Segmentação por instância (polígonos)"
+    inherit_from: "detection"
+    additional_params:
+      mask_resolution: 160
+      overlap_threshold: 0.5
+
+# Configurações por bioma brasileiro
+biome_configs:
+  cerrado:
+    description: "Savana tropical brasileira"
+    characteristics:
+      climate: "tropical semi-húmido"
+      soil_type: "latossolo"
+      elevation_range: [200, 1200]
+      precipitation_mm: [1200, 1600]
+    
+    dominant_species:
+      grasses: ["Andropogon gayanus", "Brachiaria brizantha", "Panicum maximum"]
+      trees: ["Caryocar brasiliense", "Qualea grandiflora", "Bowdichia virgilioides"]
+    
+    invasive_threats:
+      - name: "capim_gordura"
+        scientific: "Melinis minutiflora"
+        impact_level: "high"
+        management: "controle químico e mecânico"
+      - name: "braquiária"
+        scientific: "Urochloa decumbens"
+        impact_level: "medium"
+        management: "pastejo controlado"
+    
+    seasonal_patterns:
+      dry_season: "maio-setembro"
+      wet_season: "outubro-abril"
+      fire_season: "julho-setembro"
+    
+    training_adjustments:
+      color_saturation: 0.7
+      brightness_range: [0.6, 1.2]
+      contrast_adjustment: 1.1
+
+  mata_atlantica:
+    description: "Floresta atlântica brasileira"
+    characteristics:
+      climate: "tropical úmido"
+      soil_type: "podzólico"
+      elevation_range: [0, 1500]
+      precipitation_mm: [1800, 3000]
+    
+    dominant_species:
+      grasses: ["Paspalum notatum", "Axonopus compressus"]
+      trees: ["Euterpe edulis", "Caesalpinia echinata", "Araucaria angustifolia"]
+    
+    invasive_threats:
+      - name: "capim_colonião"
+        scientific: "Megathyrsus maximus"
+        impact_level: "high"
+        management: "controle integrado"
+      - name: "samambaia"
+        scientific: "Pteridium aquilinum"
+        impact_level: "medium"
+        management: "roçada e herbicida"
+    
+    seasonal_patterns:
+      dry_season: "junho-agosto"
+      wet_season: "setembro-maio"
+      growth_peak: "dezembro-março"
+    
+    training_adjustments:
+      color_saturation: 0.9
+      brightness_range: [0.4, 1.0]
+      contrast_adjustment: 0.9
+
+  pampa:
+    description: "Campos sulinos brasileiros"
+    characteristics:
+      climate: "subtropical"
+      soil_type: "chernossolo"
+      elevation_range: [0, 500]
+      precipitation_mm: [1200, 1800]
+    
+    dominant_species:
+      grasses: ["Paspalum notatum", "Andropogon lateralis", "Aristida laevis"]
+      trees: ["Acacia caven", "Prosopis nigra", "Celtis ehrenbergiana"]
+    
+    invasive_threats:
+      - name: "capim_annoni"
+        scientific: "Eragrostis plana"
+        impact_level: "high"
+        management: "controle químico seletivo"
+      - name: "carqueja"
+        scientific: "Baccharis trimera"
+        impact_level: "medium"
+        management: "roçada e pastejo"
+    
+    seasonal_patterns:
+      winter: "junho-setembro"
+      spring: "setembro-dezembro"
+      summer: "dezembro-março"
+      autumn: "março-junho"
+    
+    training_adjustments:
+      color_saturation: 0.8
+      brightness_range: [0.5, 1.1]
+      contrast_adjustment: 1.0
+
+# Configurações de hardware otimizadas
+hardware_profiles:
+  google_colab_free:
+    gpu_type: "Tesla T4"
+    gpu_memory: 16
+    ram: 12
+    storage: 25
+    recommended_model: "yolov8s"
+    max_batch_size: 8
+    optimal_image_size: 640
+    max_dataset_size: 5000
+
+  google_colab_pro:
+    gpu_type: "Tesla V100"
+    gpu_memory: 32
+    ram: 25
+    storage: 100
+    recommended_model: "yolov8m"
+    max_batch_size: 16
+    optimal_image_size: 1024
+    max_dataset_size: 20000
+
+  local_workstation:
+    gpu_type: "RTX 3080/4080"
+    gpu_memory: 16
+    ram: 32
+    storage: 500
+    recommended_model: "yolov8l"
+    max_batch_size: 12
+    optimal_image_size: 1024
+    max_dataset_size: 50000
+
+  research_cluster:
+    gpu_type: "A100"
+    gpu_memory: 80
+    ram: 128
+    storage: 2000
+    recommended_model: "yolov8x"
+    max_batch_size: 32
+    optimal_image_size: 1024
+    max_dataset_size: 100000
+
+# Configurações de augmentação por aplicação
+augmentation_profiles:
+  conservative:
+    description: "Mínima augmentação - máximo realismo"
+    use_case: "Datasets reais, validação científica"
+    parameters:
+      mosaic: 0.0
+      mixup: 0.0
+      hsv_h: 0.005
+      hsv_s: 0.2
+      hsv_v: 0.2
+      degrees: 1.0
+      translate: 0.05
+      scale: 0.05
+      shear: 0.0
+      perspective: 0.0
+      flipud: 0.0
+      fliplr: 0.5
+
+  balanced:
+    description: "Augmentação balanceada - padrão"
+    use_case: "Treinamento geral"
+    parameters:
+      mosaic: 0.8
+      mixup: 0.05
+      hsv_h: 0.015
+      hsv_s: 0.4
+      hsv_v: 0.4
+      degrees: 2.0
+      translate: 0.1
+      scale: 0.1
+      shear: 0.0
+      perspective: 0.0
+      flipud: 0.0
+      fliplr: 0.5
+
+  aggressive:
+    description: "Augmentação agressiva - máxima variabilidade"
+    use_case: "Datasets pequenos, generalização"
+    parameters:
+      mosaic: 1.0
+      mixup: 0.15
+      hsv_h: 0.025
+      hsv_s: 0.6
+      hsv_v: 0.6
+      degrees: 5.0
+      translate: 0.2
+      scale: 0.2
+      shear: 0.0
+      perspective: 0.0001
+      flipud: 0.0
+      fliplr: 0.5
+
+# Configurações de qualidade
+quality_thresholds:
+  production:
+    description: "Qualidade para produção"
+    overall_score: 0.85
+    technical_quality: 0.80
+    agricultural_realism: 0.85
+    seasonal_consistency: 0.80
+    
+  research:
+    description: "Qualidade para pesquisa científica"
+    overall_score: 0.90
+    technical_quality: 0.88
+    agricultural_realism: 0.90
+    seasonal_consistency: 0.85
+    
+  prototype:
+    description: "Qualidade para protótipos"
+    overall_score: 0.70
+    technical_quality: 0.65
+    agricultural_realism: 0.70
+    seasonal_consistency: 0.70
+
+# Templates de configuração rápida
+quick_setups:
+  beginner:
+    description: "Configuração para iniciantes"
+    model: "yolov8n"
+    epochs: 50
+    batch_size: 16
+    dataset_size: 1000
+    augmentation: "conservative"
+    quality: "prototype"
+    
+  intermediate:
+    description: "Configuração intermediária"
+    model: "yolov8s"
+    epochs: 100
+    batch_size: 12
+    dataset_size: 5000
+    augmentation: "balanced"
+    quality: "production"
+    
+  advanced:
+    description: "Configuração avançada"
+    model: "yolov8m"
+    epochs: 200
+    batch_size: 8
+    dataset_size: 15000
+    augmentation: "balanced"
+    quality: "research"
+    
+  research:
+    description: "Configuração para pesquisa"
+    model: "yolov8l"
+    epochs: 300
+    batch_size: 4
+    dataset_size: 25000
+    augmentation: "conservative"
+    quality: "research"
