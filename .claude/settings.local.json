@@ -4,7 +4,9 @@
       "Bash(mkdir:*)",
       "Bash(find:*)",
       "Bash(pip install:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "WebSearch",
+      "WebFetch(domain:openaccess.thecvf.com)"
     ],
     "deny": []
   }
