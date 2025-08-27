@@ -8,7 +8,8 @@
       "WebSearch",
       "WebFetch(domain:openaccess.thecvf.com)",
       "Bash(sed:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(chcp:*)"
     ],
     "deny": []
   }
