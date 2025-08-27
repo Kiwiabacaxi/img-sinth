@@ -9,7 +9,8 @@
       "WebFetch(domain:openaccess.thecvf.com)",
       "Bash(sed:*)",
       "Bash(grep:*)",
-      "Bash(chcp:*)"
+      "Bash(chcp:*)",
+      "mcp__ide__executeCode"
     ],
     "deny": []
   }
