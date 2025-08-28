@@ -199,3 +199,86 @@
     ),
     'description': "Panicum condição 5 - severamente deteriorado"
 }
+
+## cynodon_dactylon_healthy
+
+### Condição 1 - Cynodon saudável
+'cynodon_healthy_condition': {
+    'positive': (
+        "overhead view of healthy cynodon dactylon pasture, "
+        "dense carpet-like grass coverage, uniform green color, "
+        "fine textured stoloniferous growth, tight mat formation, "
+        "no visible soil, excellent ground coverage, "
+        "scientific documentation, agricultural research, "
+        "natural lighting, top-down perspective"
+    ),
+    'negative': (
+        "ground level, coarse grass, sparse coverage, "
+        "bare patches, tall growth, weeds"
+    ),
+    'description': "Cynodon condição 1 - saudável"
+},
+
+### Condição 2 - Leve declínio
+'cynodon_slight_decline': {
+    'positive': (
+        "aerial view of cynodon pasture with minor stress, "
+        "mostly dense green carpet with some thin areas, "
+        "good overall coverage but slight color variation, "
+        "stoloniferous grass showing early stress indicators, "
+        "scientific field documentation, research photography"
+    ),
+    'negative': (
+        "ground perspective, severe thinning, bare soil, "
+        "ornamental turf, artistic effects"
+    ),
+    'description': "Cynodon condição 2 - leve declínio"
+},
+
+### Condição 3 - Degradação moderada
+'cynodon_moderate_degradation': {
+    'positive': (
+        "top-down view of moderately degraded cynodon pasture, "
+        "patchy grass coverage with visible thin areas, "
+        "mixed green and pale sections, reduced density, "
+        "stoloniferous grass with declining vigor, "
+        "some bare soil patches becoming visible"
+    ),
+    'negative': (
+        "thick carpet coverage, uniform green, "
+        "decorative lawn, artistic photography"
+    ),
+    'description': "Cynodon condição 3 - degradação moderada"
+},
+
+### Condição 4 - Degradação avançada
+'cynodon_advanced_degradation': {
+    'positive': (
+        "overhead documentation of severely degraded cynodon, "
+        "sparse patchy grass with significant bare areas, "
+        "weakened stoloniferous growth, soil compaction, "
+        "yellowing and browning grass patches, "
+        "advanced deterioration of ground coverage"
+    ),
+    'negative': (
+        "dense mat formation, healthy green color, "
+        "ornamental setting, artistic style"
+    ),
+    'description': "Cynodon condição 4 - degradação avançada"
+},
+
+### Condição 5 - Pastagem deteriorada
+'cynodon_severely_deteriorated': {
+    'positive': (
+        "aerial view of failed cynodon pasture system, "
+        "predominantly bare compacted soil, scattered grass remnants, "
+        "brown dying stolons, severe erosion patterns, "
+        "weed invasion in bare areas, complete system failure, "
+        "agricultural documentation of pasture collapse"
+    ),
+    'negative': (
+        "carpet-like coverage, healthy stolons, green grass, "
+        "decorative turf, artistic photography"
+    ),
+    'description': "Cynodon condição 5 - severamente deteriorado"
+}
