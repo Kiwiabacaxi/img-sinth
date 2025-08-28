@@ -389,3 +389,157 @@
     ),
     'description': "Cynodon condição 5 - severamente deteriorado"
 }
+
+
+# New prompts 3x levels
+
+# Sistema de 3 níveis otimizado para melhores resultados
+brachiaria_prompts_refined = {
+    'brachiaria_optimal_health': {
+        'positive': (
+            "perfect overhead view of prime brachiaria brizantha pasture, "
+            "thick vibrant green tropical grass, dense uniform coverage, "
+            "wide leaf blades in natural tufts, robust plant structure, "
+            "excellent ground coverage, no bare soil visible, "
+            "agricultural research photography, natural daylight, "
+            "top-down perspective, healthy tropical grassland"
+        ),
+        'negative': (
+            "sparse coverage, thin grass, bare patches, yellow grass, "
+            "ground level view, side angle, artificial, synthetic, "
+            "ornamental lawn, temperate species, flowers"
+        ),
+        'description': "Brachiaria - Saúde Ótima"
+    },
+    
+    'brachiaria_good_condition': {
+        'positive': (
+            "aerial view of good condition brachiaria pasture, "
+            "mostly green grass with natural color variation, "
+            "good coverage with minor irregular patches, "
+            "wide leaf tropical grass showing normal field variation, "
+            "scientific documentation, natural lighting, "
+            "overhead perspective, realistic pasture condition"
+        ),
+        'negative': (
+            "severely damaged, mostly bare soil, dying grass, "
+            "ground perspective, ornamental setting, artificial, "
+            "temperate grass, decorative lawn"
+        ),
+        'description': "Brachiaria - Boa Condição"
+    },
+    
+    'brachiaria_moderate_stress': {
+        'positive': (
+            "top-down view of brachiaria pasture under moderate stress, "
+            "mixed green and lighter colored grass areas, "
+            "uneven plant density, some small bare soil spots visible, "
+            "tropical grass showing stress but still recognizable, "
+            "natural variation in coverage, field research documentation, "
+            "realistic pasture with environmental stress"
+        ),
+        'negative': (
+            "completely healthy, uniform green, perfect coverage, "
+            "ground level view, decorative grass, artificial, "
+            "abstract patterns, unrecognizable vegetation"
+        ),
+        'description': "Brachiaria - Estresse Moderado"
+    }
+}
+
+# Panicum com 3 níveis
+panicum_prompts_refined = {
+    'panicum_excellent_vigor': {
+        'positive': (
+            "overhead view of vigorous panicum maximum pasture, "
+            "tall robust green tropical grass, wide leaf blades, "
+            "dense natural clumping pattern, excellent coverage, "
+            "healthy upright growth, thick stems visible, "
+            "research quality photography, natural lighting"
+        ),
+        'negative': (
+            "short grass, thin blades, sparse coverage, ground view, "
+            "artificial, ornamental, temperate species"
+        ),
+        'description': "Panicum - Vigor Excelente"
+    },
+    
+    'panicum_adequate_growth': {
+        'positive': (
+            "aerial view of adequate panicum grass field, "
+            "mostly green tall grass with natural variation, "
+            "good but not perfect coverage, mixed growth vigor, "
+            "large tropical grass with normal field irregularities, "
+            "scientific documentation, top-down perspective"
+        ),
+        'negative': (
+            "severely stressed, mostly bare, dying vegetation, "
+            "ground perspective, decorative setting, artificial"
+        ),
+        'description': "Panicum - Crescimento Adequado"
+    },
+    
+    'panicum_declining_vigor': {
+        'positive': (
+            "overhead documentation of declining panicum pasture, "
+            "tall grass with mixed green and pale areas, "
+            "reduced plant density, some bare patches, "
+            "tropical grass showing stress but maintaining structure, "
+            "natural field conditions, research photography"
+        ),
+        'negative': (
+            "perfect health, uniform coverage, decorative lawn, "
+            "ground view, abstract patterns, unrecognizable"
+        ),
+        'description': "Panicum - Vigor em Declínio"
+    }
+}
+
+# Cynodon com 3 níveis
+cynodon_prompts_refined = {
+    'cynodon_premium_condition': {
+        'positive': (
+            "perfect overhead view of premium cynodon dactylon, "
+            "dense carpet-like grass coverage, uniform bright green, "
+            "fine textured stoloniferous mat, excellent ground coverage, "
+            "tight formation, no visible soil, research quality, "
+            "natural lighting, top-down agricultural documentation"
+        ),
+        'negative': (
+            "sparse coverage, bare patches, coarse texture, "
+            "ground level view, artificial turf, ornamental"
+        ),
+        'description': "Cynodon - Condição Premium"
+    },
+    
+    'cynodon_standard_quality': {
+        'positive': (
+            "aerial view of standard quality cynodon pasture, "
+            "good carpet coverage with minor thin areas, "
+            "mostly uniform green with natural color variation, "
+            "stoloniferous grass with adequate density, "
+            "scientific field documentation, overhead perspective"
+        ),
+        'negative': (
+            "severely thin, mostly bare soil, dying grass, "
+            "ground view, decorative setting, artificial"
+        ),
+        'description': "Cynodon - Qualidade Padrão"
+    },
+    
+    'cynodon_thinning_coverage': {
+        'positive': (
+            "top-down view of cynodon with thinning coverage, "
+            "patchy grass areas with visible thin spots, "
+            "mixed density stoloniferous growth, some soil showing, "
+            "declining but still recognizable cynodon pasture, "
+            "natural field conditions, research documentation"
+        ),
+        'negative': (
+            "thick perfect carpet, uniform coverage, decorative turf, "
+            "ground perspective, abstract patterns, unrecognizable"
+        ),
+        'description': "Cynodon - Cobertura Rarefeita"
+    }
+}
+
