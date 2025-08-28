@@ -1,5 +1,112 @@
 # Example prompt structure
 
+## first examples
+
+'brachiaria_scientific_overhead': {
+    'positive': (
+        "perfect overhead aerial view of brachiaria brizantha pasture, "
+        "thick tropical grass with wide green leaf blades, "
+        "dense tufted growth pattern, natural clumping structure, "
+        "complete ground coverage, no visible soil, "
+        "scientific agricultural documentation, research quality, "
+        "natural daylight, uniform soft lighting, "
+        "detailed tropical grass texture, realistic vegetation, "
+        "brazilian cattle pasture, forage grass field, "
+        "top-down perspective, bird's eye documentation"
+    ),
+    'negative': (
+        "ground level, human perspective, horizon visible, "
+        "fine thin grass, temperate species, flowers, blooms, "
+        "ornamental lawn, decorative setting, shadows, "
+        "artistic photography, low quality, distorted view"
+    ),
+    'description': "Brachiaria científica vista aérea"
+},
+
+'brachiaria_dense_coverage': {
+    'positive': (
+        "directly overhead view of dense brachiaria grass field, "
+        "thick bright green tropical forage grass, "
+        "natural tussock formation, clustered growth pattern, "
+        "complete vegetation coverage, lush green pasture, "
+        "agricultural field study image, scientific documentation, "
+        "natural outdoor lighting, research photography, "
+        "wide leaf tropical grass, cattle grazing land, "
+        "aerial perspective, top-down agricultural survey"
+    ),
+    'negative': (
+        "side angle, ground perspective, sky background, "
+        "narrow leaf grass, cool season grass, clover, legumes, "
+        "manicured turf, golf course, dramatic lighting, "
+        "poor resolution, blurry, watermarked"
+    ),
+    'description': "Cobertura densa Brachiaria aérea"
+},
+
+'brachiaria_natural_pattern': {
+    'positive': (
+        "overhead aerial documentation of brachiaria pasture, "
+        "natural growth pattern of tropical forage grass, "
+        "thick green grass blades in irregular clusters, "
+        "dense vegetation mat, full ground coverage, "
+        "scientific field research image, agricultural study, "
+        "soft natural daylight, even illumination, "
+        "realistic tropical grass texture, detailed vegetation, "
+        "brazilian grassland, livestock pasture, "
+        "complete top-down view, research documentation"
+    ),
+    'negative': (
+        "angled view, human eye level, horizon line, "
+        "fine grass species, flowering plants, white flowers, "
+        "landscaped area, ornamental grass, harsh shadows, "
+        "artistic style, low quality, perspective distortion"
+    ),
+    'description': "Padrão natural Brachiaria vista superior"
+},
+
+'brachiaria_field_study': {
+    'positive': (
+        "scientific overhead view of brachiaria grass pasture, "
+        "thick tropical grass with broad leaf structure, "
+        "natural clumping and tufting growth habit, "
+        "dense green vegetation coverage, no bare spots, "
+        "agricultural research photography, field documentation, "
+        "uniform natural lighting, research quality image, "
+        "detailed grass blade texture, realistic pattern, "
+        "cattle pasture grass, tropical forage species, "
+        "perfect vertical aerial perspective"
+    ),
+    'negative': (
+        "ground level view, perspective angle, trees visible, "
+        "thin blade grass, temperate grass, flowers, blooms, "
+        "decorative lawn, residential grass, strong shadows, "
+        "artistic photography, poor quality, distorted"
+    ),
+    'description': "Estudo de campo Brachiaria aérea"
+},
+
+'brachiaria_research_documentation': {
+    'positive': (
+        "direct overhead aerial view of brachiaria grassland, "
+        "thick bright green tropical pasture grass, "
+        "natural bunching and clustering growth form, "
+        "complete dense ground coverage, healthy vegetation, "
+        "scientific agricultural documentation, research image, "
+        "natural daylight conditions, soft even lighting, "
+        "detailed tropical grass texture, realistic structure, "
+        "brazilian cattle pasture, forage grass research, "
+        "bird's eye perspective, agricultural field study"
+    ),
+    'negative': (
+        "side perspective, eye level, background elements, "
+        "fine textured grass, cool climate species, flowering, "
+        "ornamental turf, landscaping, dramatic lighting, "
+        "artistic effects, low resolution, blurred image"
+    ),
+    'description': "Documentação científica Brachiaria"
+}
+
+
 ## brachiaria_dense_tufts
 'brachiaria_dense_tufts': {
     'positive': (
